@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"  xmlns:m="urn:import:gwt.material.design.client.ui" >
+
+<g:HTMLPanel>
+	<m:MaterialNavBar backgroundColor="blue" activates="mysidebar">
+  <m:MaterialNavSection textAlign="RIGHT">
+   <m:MaterialTooltip text="Starter">
+    <m:MaterialLink iconType="WHATSHOT" textColor="white"/>
+   </m:MaterialTooltip>
+   <m:MaterialTooltip text="Starter">
+    <m:MaterialLink iconType="WHATSHOT" textColor="white"/>
+   </m:MaterialTooltip>
+   <m:MaterialTooltip text="Starter">
+    <m:MaterialLink iconType="WHATSHOT" textColor="white"/>
+   </m:MaterialTooltip>
+  </m:MaterialNavSection>
+ </m:MaterialNavBar>
+
+ <m:MaterialSideNav width="300" m:id="mysidebar" type="CLOSE" closeOnClick="false">
+  <m:MaterialNavBrand href="#Test">Title</m:MaterialNavBrand>
+  <m:MaterialLink iconType="INBOX" iconPosition="LEFT" textColor="blue" text="Inbox" />
+  <m:MaterialLink iconType="STARS" iconPosition="LEFT" textColor="grey" text="Starred" />
+  <m:MaterialLink iconType="SEND" iconPosition="LEFT" textColor="grey" text="Sent Mail" />
+  <m:MaterialLink iconType="DRAFTS" iconPosition="LEFT" textColor="grey" text="Drafts" />
+  <m:MaterialLink iconType="MARKUNREAD" iconPosition="LEFT" textColor="grey" text="All Mail" />
+ </m:MaterialSideNav>
+ </g:HTMLPanel>
+</ui:UiBinder>
+
+
