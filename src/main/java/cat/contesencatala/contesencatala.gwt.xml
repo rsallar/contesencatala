@@ -1,40 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to='contesencatala'>
-  <!-- Inherit the core Web Toolkit stuff.                        -->
-  <inherits name='com.google.gwt.user.User' />
-    
-  <!-- We need the JUnit module in the main module,               -->
-  <!-- otherwise eclipse complains (Google plugin bug?)           -->
-  <inherits name='com.google.gwt.junit.JUnit' />
+  	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name="com.gwtplatform.mvp.MvpWithEntryPoint" />
 
-  <!-- Inherit the default GWT style sheet.  You can change       -->
-  <!-- the theme of your GWT application by uncommenting          -->
-  <!-- any one of the following lines.                            -->
-  <inherits name='com.google.gwt.user.theme.standard.Standard' />
-  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
-  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+	<extend-configuration-property name="gin.ginjector.modules"
+		value="cat.contesencatala.client.gin.ClientModule" />
 
-  <!-- Other module inherits                                      -->
+        <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
+	<inherits name="gwt.material.design.GwtMaterialWithJQueryDebug" />
 
-  <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
-  <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
-  <inherits name='com.gwtplatform.mvp.MvpWithEntryPoint'/>
-  <inherits name="com.google.gwt.logging.Logging"/>
- <inherits name="gwt.material.design.GwtMaterialDesign" />
-  
-  <!-- Specify the app entry point class.                         -->
- 
+	<!-- Specify the paths for translatable code -->
+	<source path='client'/>
+	<source path='shared' />
 
-  <!-- Specify the paths for translatable code                    -->
-  <source path='client' />
-  <source path='shared' />
-  
-  <set-property name="gwt.logging.logLevel" value="FINE"/>   
-  <set-property name="gwt.logging.simpleRemoteHandler" value="DISABLED" />
-  <set-property name="compiler.stackMode" value="emulated" />
-  <set-configuration-property name="compiler.emulatedStack.recordLineNumbers" value="true" />s
-  <set-configuration-property name="gwtp.prebootstrapper" value="cat.contesencatala.client.gin.PreBootstrapperImpl"/> 
-  <extend-configuration-property name="gin.ginjector.modules" value="cat.contesencatala.client.gin.ClientModule"/>
-  <set-configuration-property name="CssResource.enableGss" value="true" />
-<set-configuration-property name="CssResource.conversionMode"    value="strict" />
+	<set-configuration-property name="CssResource.enableGss"
+		value="true" />
 </module>

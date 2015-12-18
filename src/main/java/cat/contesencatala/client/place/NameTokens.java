@@ -1,4 +1,4 @@
-package cat.contesencatala.client.application.place;
+package cat.contesencatala.client.place;
 /**
  * @author Joshua Godi
  */

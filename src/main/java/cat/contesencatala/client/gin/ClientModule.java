@@ -26,7 +26,7 @@ import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
 
 import cat.contesencatala.client.application.ApplicationModule;
-import cat.contesencatala.client.application.place.NameTokens;
+import cat.contesencatala.client.place.NameTokens;
 
 
 public class ClientModule extends AbstractPresenterModule {
