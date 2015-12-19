@@ -7,6 +7,7 @@ public class NameTokens {
     public static final String HOME = "home";
 	public static final String DROPDOWN = "dropdown";
 	public static final String CLASSIFIER = "classifier";
+	public static final String LOGIN = "login";
 
     public static String home() {
         return HOME;

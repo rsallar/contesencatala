@@ -43,7 +43,7 @@ public class ClientModule extends AbstractPresenterModule {
       
     	
         bindConstant().annotatedWith(RestApplicationPath.class).to("http://127.0.0.1:8888");
-        bindConstant().annotatedWith(DefaultPlace.class).to(NameTokens.HOME);
+        bindConstant().annotatedWith(DefaultPlace.class).to(NameTokens.LOGIN);
         bindConstant().annotatedWith(ErrorPlace.class).to(NameTokens.HOME);
         bindConstant().annotatedWith(UnauthorizedPlace.class).to(NameTokens.HOME);
 
