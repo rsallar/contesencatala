@@ -6,6 +6,7 @@ import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
+import com.gwtplatform.mvp.client.Presenter.RevealType;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
@@ -17,14 +18,14 @@ public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresen
     }
     Logger logger = Logger.getLogger(LoginPresenter.class.getName());
     @ProxyStandard
-    @NameToken(NameTokens.LOGIN)
+    @NameToken(NameTokens.login)
     interface MyProxy extends ProxyPlace<LoginPresenter>{}
 
     @Inject
     LoginPresenter(
             EventBus eventBus,
             MyView view, MyProxy proxy) {
-    	 super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
+    	 super(eventBus, view, proxy, RevealType.Root);
         
     }
     

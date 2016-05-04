@@ -11,7 +11,6 @@ import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
-import cat.contesencatala.client.application.menu.MenuPresenter;
 import cat.contesencatala.client.place.NameTokens;
 
 public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter.MyProxy> {
@@ -19,7 +18,7 @@ public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter
     }
     Logger logger = Logger.getLogger(HomePresenter.class.getName());
     @ProxyStandard
-    @NameToken(NameTokens.HOME)
+    @NameToken(NameTokens.home)
     interface MyProxy extends ProxyPlace<HomePresenter> {
     }
 

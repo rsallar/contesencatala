@@ -9,12 +9,12 @@ public interface AppResources extends ClientBundle {
 	interface Normalize extends CssResource {
     }
 
-    interface Style extends LoginView.Style{
+   /* interface Style extends LoginView.Style{
     }
 
     @Source("css/normalize.gss")
     Normalize normalize();
 
     @Source("css/style.gss")
-    Style style();
+    Style style(); */
 }

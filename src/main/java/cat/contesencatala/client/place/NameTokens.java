@@ -4,16 +4,12 @@ package cat.contesencatala.client.place;
  * @author Joshua Godi
  */
 public class NameTokens {
-	public static final String d = "d";
-	public static final String ERROR = "/error";
+	public static final String talelist = "/talelist";
+	public static final String error = "/error";
 
 	// General Pages
-	public static final String HOME = "/home";
-	public static final String LOGIN = "/login";
-	public static final String MENU = "/menu";
+	public static final String home = "/home";
+	public static final String login = "/login";
 
-	public static String getD() {
-		return d;
-	}
 
 }

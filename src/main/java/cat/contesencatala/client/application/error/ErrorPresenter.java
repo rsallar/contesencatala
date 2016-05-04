@@ -17,7 +17,7 @@ public class ErrorPresenter extends Presenter<ErrorPresenter.MyView, ErrorPresen
     }
     Logger logger = Logger.getLogger(ErrorPresenter.class.getName());
 
-    @NameToken(NameTokens.ERROR)
+    @NameToken(NameTokens.error)
     @ProxyStandard
     interface MyProxy extends ProxyPlace<ErrorPresenter> {
     }

@@ -1,6 +1,21 @@
-<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-        xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:m="urn:import:gwt.material.design.client.ui">
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+  
+    <g:HTMLPanel>
+ <m:MaterialNavBar backgroundColor="blue" activates="mysidenav">
+ 
+ </m:MaterialNavBar>
 
+ <m:MaterialSideNav m:id="mysidenav" type="OPEN" width="200" closeOnClick="true">
+  <m:MaterialNavBrand href="#home" fontSize="20px">Contes en català</m:MaterialNavBrand>
+  <m:MaterialLink href="#talelist" iconType="BOOK" iconPosition="LEFT" textColor="blue" text="Contes" />
+  <m:MaterialLink iconType="STARS" iconPosition="LEFT" textColor="grey" text="Favorits" />
+ 
+ 
+ </m:MaterialSideNav>
+ 
  <g:SimplePanel ui:field="main"></g:SimplePanel>
-
+</g:HTMLPanel>
 </ui:UiBinder>

@@ -39,9 +39,9 @@ public class ClientModule extends AbstractPresenterModule {
     	
     	install(new DefaultModule.Builder()
                 .tokenFormatter(RouteTokenFormatter.class)
-                .defaultPlace(NameTokens.MENU)
-                .errorPlace(NameTokens.ERROR)
-                .unauthorizedPlace(NameTokens.ERROR)
+                .defaultPlace(NameTokens.home)
+                .errorPlace(NameTokens.error)
+                .unauthorizedPlace(NameTokens.error)
                 .build());
     	
     	

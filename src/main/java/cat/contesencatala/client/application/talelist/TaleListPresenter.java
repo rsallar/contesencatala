@@ -1,4 +1,4 @@
-package cat.contesencatala.client.application.menu;
+package cat.contesencatala.client.application.talelist;
 
 import java.util.logging.Logger;
 
@@ -8,25 +8,21 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
-import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
-import com.gwtplatform.mvp.client.proxy.Proxy;
+import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.place.NameTokens;
-public class MenuPresenter extends Presenter<MenuPresenter.MyView, MenuPresenter.MyProxy>  {
+public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleListPresenter.MyProxy>  {
     interface MyView extends View  {
     }
-    
-    public static final NestedSlot SLOT_MENU = new NestedSlot();
-    Logger logger = Logger.getLogger(MenuPresenter.class.getName());
-    
+    Logger logger = Logger.getLogger(TaleListPresenter.class.getName());
+    @NameToken(NameTokens.talelist)
     @ProxyStandard
-    @NameToken(NameTokens.MENU)
-    interface MyProxy extends Proxy<MenuPresenter> {
+    interface MyProxy extends ProxyPlace<TaleListPresenter> {
     }
 
     @Inject
-    MenuPresenter(
+    TaleListPresenter(
             EventBus eventBus,
             MyView view, 
             MyProxy proxy) {
@@ -36,8 +32,6 @@ public class MenuPresenter extends Presenter<MenuPresenter.MyView, MenuPresenter
     
     @Override
     protected void onBind() {    	
-    	logger.info("MenuPresenter bind!");
+    	logger.info("TaleListPresenter bind!");
     }
-    
-    
 }

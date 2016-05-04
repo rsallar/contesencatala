@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui">
+             
+   <m:MaterialCollapsibleItem>
+	   <m:MaterialCollapsibleHeader>
+	    <m:MaterialLink ui:field="title" iconType="POLYMER" iconPosition="LEFT" textColor="black"/>
+	    <m:MaterialIcon iconType="DELETE" waves="DEFAULT" float="RIGHT" circle="true" />
+	    <m:MaterialIcon iconType="PIN_DROP" waves="DEFAULT" float="RIGHT" circle="true" />
+	   </m:MaterialCollapsibleHeader>
+	   <m:MaterialCollapsibleBody>
+	    <m:MaterialLabel ui:field="text"/>
+	   </m:MaterialCollapsibleBody>
+	  </m:MaterialCollapsibleItem>
+</ui:UiBinder>

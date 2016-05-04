@@ -11,14 +11,7 @@ public class LoginView extends ViewImpl implements LoginPresenter.MyView {
     interface Binder extends UiBinder<Widget, LoginView> {
     }
     
-    public interface Style extends CssResource{
-    	String loginDemo();
-    	String panel();
-    	String fieldPanel();
-    	String imgProfile();
-    	String rowAction();
-    }
-
+    
     @Inject
     LoginView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));

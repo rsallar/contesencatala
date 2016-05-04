@@ -22,6 +22,10 @@
 
 	<set-configuration-property name="CssResource.enableGss" value="true" />
 
+	<set-property name="compiler.stackMode" value="native">
+	  <when-property-is name="superdevmode" value="on" />
+	</set-property>
+
 	<!-- Specify the paths for translatable code -->
 	<source path='client'/>
 	<source path='shared' />
