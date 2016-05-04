@@ -4,6 +4,6 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 public class MyApplication extends ResourceConfig {
     public MyApplication() {
-        packages("cat.elsmeuscontes.server");
+        packages("cat.contesencatala.server");
     }
 }

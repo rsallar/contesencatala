@@ -1,25 +1,19 @@
 package cat.contesencatala.client.place;
+
 /**
  * @author Joshua Godi
  */
 public class NameTokens {
-    // General Pages
-    public static final String HOME = "home";
-	public static final String DROPDOWN = "dropdown";
-	public static final String CLASSIFIER = "classifier";
-	public static final String LOGIN = "login";
+	public static final String d = "d";
+	public static final String ERROR = "/error";
 
-    public static String home() {
-        return HOME;
-    }
-    
-    public static String dropdown() {
-        return DROPDOWN;
-    }
-    
-    public static String classifier() {
-        return CLASSIFIER;
-    }
-    
+	// General Pages
+	public static final String HOME = "/home";
+	public static final String LOGIN = "/login";
+	public static final String MENU = "/menu";
+
+	public static String getD() {
+		return d;
+	}
 
 }

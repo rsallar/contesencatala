@@ -12,10 +12,11 @@ public class PreBootstrapperImpl implements PreBootstrapper {
 	Logger logger = Logger.getLogger(PreBootstrapperImpl.class.getName());
     @Override
     public void onPreBootstrap() {
-    	logger.log(Level.SEVERE, "prebootstrapping");
+    	
         GWT.setUncaughtExceptionHandler(new UncaughtExceptionHandler() {
             @Override
             public void onUncaughtException(final Throwable e) {
+            	logger.fine("severe error");
             	logger.log(Level.SEVERE, "error: "+e.getMessage(), e);
             }
         });

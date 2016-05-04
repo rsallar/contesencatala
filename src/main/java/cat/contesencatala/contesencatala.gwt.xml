@@ -3,29 +3,28 @@
   	<!-- Inherit the core Web Toolkit stuff. -->
 	<inherits name='com.google.gwt.user.User' />
 	
-
+   
 	<!-- GWTP -->
 	<inherits name="com.gwtplatform.mvp.MvpWithEntryPoint" />
-	<extend-configuration-property name="gin.ginjector.modules"
-		value="cat.contesencatala.client.gin.ClientModule" />
+	<extend-configuration-property name="gin.ginjector.modules" value="cat.contesencatala.client.gin.ClientModule" />
     <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
     
     <!-- MATERIAL -->
 	<inherits name="gwt.material.design.GwtMaterialWithJQueryDebug" />
 	
-	<!-- Logging -->
+	<!-- Logging  --> 
 	<inherits name="com.google.gwt.logging.Logging"/>
-	<set-property name="gwt.logging.logLevel" value="SEVERE"/>          
-    <set-property name="gwt.logging.enabled" value="TRUE"/>            
-    <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>  
+	<set-property name="gwt.logging.enabled" value="TRUE"/>
+    <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>
+    <set-property name="gwt.logging.logLevel" value="FINE"/>
+   
+    <set-configuration-property name="gwtp.prebootstrapper" value="cat.contesencatala.client.gin.PreBootstrapperImpl"/>
+
+	<set-configuration-property name="CssResource.enableGss" value="true" />
 
 	<!-- Specify the paths for translatable code -->
 	<source path='client'/>
 	<source path='shared' />
 	
-	<set-configuration-property name="gwtp.prebootstrapper"
-        value="cat.contesencatala.client.gin.PreBootstrapperImpl"/>
-
-	<set-configuration-property name="CssResource.enableGss"
-		value="true" />
+	
 </module>

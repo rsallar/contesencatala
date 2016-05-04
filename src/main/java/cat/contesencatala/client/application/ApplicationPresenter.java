@@ -1,5 +1,7 @@
 package cat.contesencatala.client.application;
 
+import java.util.logging.Logger;
+
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
@@ -10,6 +12,9 @@ import com.gwtplatform.mvp.client.proxy.Proxy;
 
 public class ApplicationPresenter
         extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy> {
+	
+	Logger logger = Logger.getLogger(ApplicationPresenter.class.getName());
+	
     interface MyView extends View {
     }
 
@@ -26,5 +31,10 @@ public class ApplicationPresenter
             MyView view,
             MyProxy proxy) {
         super(eventBus, view, proxy, RevealType.Root);
+    }
+    
+    @Override
+    protected void onBind() {    	
+    	logger.info("ApplicationPresenter bind!");
     }
 }

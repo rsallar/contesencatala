@@ -1,4 +1,4 @@
-package cat.contesencatala.client.application.home;
+package cat.contesencatala.client.application.error;
 
 import java.util.logging.Logger;
 
@@ -11,28 +11,30 @@ import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
-import cat.contesencatala.client.application.menu.MenuPresenter;
 import cat.contesencatala.client.place.NameTokens;
-
-public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter.MyProxy> {
-    interface MyView extends View {
+public class ErrorPresenter extends Presenter<ErrorPresenter.MyView, ErrorPresenter.MyProxy>  {
+    interface MyView extends View  {
     }
-    Logger logger = Logger.getLogger(HomePresenter.class.getName());
+    Logger logger = Logger.getLogger(ErrorPresenter.class.getName());
+
+    @NameToken(NameTokens.ERROR)
     @ProxyStandard
-    @NameToken(NameTokens.HOME)
-    interface MyProxy extends ProxyPlace<HomePresenter> {
+    interface MyProxy extends ProxyPlace<ErrorPresenter> {
     }
 
     @Inject
-    HomePresenter(
+    ErrorPresenter(
             EventBus eventBus,
-            MyView view,
+            MyView view, 
             MyProxy proxy) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
+        
     }
     
     @Override
     protected void onBind() {    	
-    	logger.info("HomePresenter bind!");
+    	logger.info("ErrorPresenter bind!");
     }
+    
+    
 }

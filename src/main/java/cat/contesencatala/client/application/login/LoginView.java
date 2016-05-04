@@ -24,6 +24,6 @@ public class LoginView extends ViewImpl implements LoginPresenter.MyView {
         initWidget(uiBinder.createAndBindUi(this));
     }
     
-  
+   
     
 }

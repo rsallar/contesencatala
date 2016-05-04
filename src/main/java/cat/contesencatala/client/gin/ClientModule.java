@@ -16,37 +16,41 @@
 
 package cat.contesencatala.client.gin;
 
-import com.gwtplatform.dispatch.rest.client.RestApplicationPath;
+import java.util.logging.Logger;
+
 import com.gwtplatform.dispatch.rest.client.gin.RestDispatchAsyncModule;
-import com.gwtplatform.mvp.client.annotations.DefaultPlace;
-import com.gwtplatform.mvp.client.annotations.ErrorPlace;
 import com.gwtplatform.mvp.client.annotations.GaAccount;
-import com.gwtplatform.mvp.client.annotations.UnauthorizedPlace;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
+import com.gwtplatform.mvp.shared.proxy.RouteTokenFormatter;
 
 import cat.contesencatala.client.application.ApplicationModule;
 import cat.contesencatala.client.place.NameTokens;
-
+import cat.contesencatala.client.resources.ResourceLoader;
 
 public class ClientModule extends AbstractPresenterModule {
+	Logger logger = Logger.getLogger("ClientModule");
+	
     private static final String ANALYTICS_ACCOUNT = "UA-8319339-6";
 
     @Override
     protected void configure() {
-    	RestDispatchAsyncModule.Builder dispatchBuilder = new RestDispatchAsyncModule.Builder();
+    	//RestDispatchAsyncModule.Builder dispatchBuilder = new RestDispatchAsyncModule.Builder();	
     	
-
-    	install(dispatchBuilder.build());
-    	install(new DefaultModule());
+    	install(new DefaultModule.Builder()
+                .tokenFormatter(RouteTokenFormatter.class)
+                .defaultPlace(NameTokens.MENU)
+                .errorPlace(NameTokens.ERROR)
+                .unauthorizedPlace(NameTokens.ERROR)
+                .build());
+    	
+    	
+    	//install(dispatchBuilder.build());
     	install(new ApplicationModule());
-      
     	
-        bindConstant().annotatedWith(RestApplicationPath.class).to("http://127.0.0.1:8888");
-        bindConstant().annotatedWith(DefaultPlace.class).to(NameTokens.LOGIN);
-        bindConstant().annotatedWith(ErrorPlace.class).to(NameTokens.HOME);
-        bindConstant().annotatedWith(UnauthorizedPlace.class).to(NameTokens.HOME);
-
-        bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);
+    	
+    	bind(ResourceLoader.class).asEagerSingleton();
+    	
+       /* bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);*/
     }
 }
