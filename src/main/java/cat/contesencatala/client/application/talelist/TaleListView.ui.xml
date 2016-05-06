@@ -3,7 +3,14 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:m="urn:import:gwt.material.design.client.ui">
              
+             
+             
   <m:MaterialCollapsible type="POPOUT"  ui:field="list">
+  
+  
 	  
  </m:MaterialCollapsible>
+ 
+  
+   
 </ui:UiBinder>

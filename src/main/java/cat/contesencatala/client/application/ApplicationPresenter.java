@@ -34,7 +34,9 @@ public class ApplicationPresenter
     }
     
     @Override
-    protected void onBind() {    	
+    protected void onBind() {  
+    
+    	//IconType.star
     	logger.info("ApplicationPresenter bind!");
     }
 }

@@ -1,11 +1,20 @@
 package cat.contesencatala.client.resources;
 
+import java.util.logging.Logger;
+
 import javax.inject.Inject;
 
+import cat.contesencatala.client.application.ApplicationPresenter;
+
 public class ResourceLoader {
+	Logger logger = Logger.getLogger(ApplicationPresenter.class.getName());
+	
     @Inject
     ResourceLoader(AppResources appResources) {
-        //appResources.normalize().ensureInjected();
-        //appResources.style().ensureInjected();
+    	
+    	logger.info("ResourceLoader loading styles...");
+    	
+        appResources.normalize().ensureInjected();
+        appResources.style().ensureInjected();
     }
 }

@@ -10,7 +10,8 @@
     <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
     
     <!-- MATERIAL -->
-	<inherits name="gwt.material.design.GwtMaterialWithJQueryDebug" />
+	<inherits name="gwt.material.design.GwtMaterialWithJQuery" />
+	<inherits name="gwt.material.design.addins.GWTMaterialAddins"/>
 	
 	<!-- Logging  --> 
 	<inherits name="com.google.gwt.logging.Logging"/>

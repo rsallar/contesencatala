@@ -1,5 +1,21 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-             xmlns:g="urn:import:com.google.gwt.user.client.ui">
-    <g:SimplePanel ui:field="main"/>
+             xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:m="urn:import:gwt.material.design.client.ui" xmlns:o="urn:import:gwt.material.design.addins.client.overlay">
+             
+  <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
+ 
+  <m:MaterialCollapsibleItem ui:field="item">
+   <m:MaterialCollapsibleHeader>
+    <m:MaterialLink ui:field="title" iconType="POLYMER" iconPosition="LEFT" textColor="black"/>
+    <m:MaterialIcon float="RIGHT" addStyleNames="{res.style.star}" ui:field="starIcon" iconType="STAR_OUTLINE" waves="DEFAULT" circle="true" />
+   </m:MaterialCollapsibleHeader>
+   
+   <m:MaterialCollapsibleBody ui:field="body">
+    <m:MaterialLabel  ui:field="description"/>
+    <m:MaterialButton ui:field="readBtn" text="LLegir" waves="LIGHT" backgroundColor="blue"  textColor="white" iconType="POLYMER" iconPosition="LEFT"/>
+   </m:MaterialCollapsibleBody>
+   
+  </m:MaterialCollapsibleItem>
+  
 </ui:UiBinder>

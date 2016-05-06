@@ -11,7 +11,10 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
 
 public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
-    interface Binder extends UiBinder<Widget, ApplicationView> {
+    
+	
+	
+	interface Binder extends UiBinder<Widget, ApplicationView> {
     }
     Logger logger = Logger.getLogger(ApplicationView.class.getName());
     

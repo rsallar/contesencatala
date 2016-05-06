@@ -7,11 +7,13 @@ import cat.contesencatala.client.application.home.HomeModule;
 import cat.contesencatala.client.application.login.LoginModule;
 import cat.contesencatala.client.application.talelist.TaleListModule;
 import cat.contesencatala.client.application.widgets.tale.TaleModule;
+import cat.contesencatala.client.application.reader.ReaderModule;
 
 public class ApplicationModule extends AbstractPresenterModule {
     @Override
     protected void configure() {
-        install(new TaleModule());
+        install(new ReaderModule());
+		install(new TaleModule());
 		install(new ErrorModule());
 		install(new LoginModule());
 		install(new HomeModule());
