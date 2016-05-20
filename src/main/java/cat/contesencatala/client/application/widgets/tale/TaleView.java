@@ -9,11 +9,12 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
-import gwt.material.design.addins.client.overlay.MaterialOverlay;
-import gwt.material.design.addins.client.pathanimator.MaterialPathAnimator;
+import cat.contesencatala.client.resources.AppResources;
+import gwt.material.design.client.constants.Display;
+import gwt.material.design.client.constants.FlexJustifyContent;
 import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.ui.MaterialButton;
-import gwt.material.design.client.ui.MaterialCollapsibleItem;
+import gwt.material.design.client.ui.MaterialCollectionItem;
 import gwt.material.design.client.ui.MaterialIcon;
 import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialLink;
@@ -22,71 +23,71 @@ class TaleView extends ViewWithUiHandlers<TaleUiHandlers> implements TalePresent
     interface Binder extends UiBinder<Widget, TaleView> {
     }
 
+    
     @UiField
     MaterialLink title;
     
     @UiField
-    MaterialIcon starIcon;
+    MaterialIcon favoriteIcon;
     
     @UiField
-    MaterialCollapsibleItem item;
+    MaterialCollectionItem item;
     
     @UiField
-    MaterialLabel description;
+    MaterialLabel author;
     
-    @UiField
-    MaterialButton readBtn;
+
+	private AppResources bundle;
   
     
 
     @Inject
-    TaleView(Binder uiBinder) {
+    TaleView(Binder uiBinder,  AppResources bundle) {
         initWidget(uiBinder.createAndBindUi(this));
+        this.bundle = bundle;
+        item.setDisplay(Display.FLEX);
+        item.setFlexJustifyContent(FlexJustifyContent.SPACE_BETWEEN);
     }
 
 	@Override
 	public void setTitle(String text) {
 		title.setText(text);
-		
-		
+				
 	}
+	
+
 
 	@Override
-	public void setDescription(String text) {
-		description.setText(text);
+	public void setAuthor(String text) {
+		author.setText(text);
 	}
+		
+	 
+	 @UiHandler("item")
+	 void onClick(ClickEvent e) {
 	
-	@UiHandler("starIcon")
-	void handleClick(ClickEvent e) {
-		this.getUiHandlers().selectionToogle();
-		e.stopPropagation();
-	
-	}
-	
-	 @UiHandler("readBtn")
-	 void onSource(ClickEvent e) {
-		 this.getUiHandlers().read();
-		 //MaterialPathAnimator.animate(readBtn.getElement(), overlayTarget.getElement());
+		this.getUiHandlers().selection();
 		
 	 }
 	 
+	 @Override
+	public void select(){
+		 item.setBackgroundColor("blue lighten-5");
+	 }
+	 @Override
+	public void unselect(){
+		 item.setBackgroundColor("white");
+	 }
+	 
 	
-
-
 	@Override
-	public void select() {
-		starIcon.setIconType(IconType.STAR);
+	public void favorite() {
+		favoriteIcon.setVisible(true);
 	}
 
 	@Override
-	public void unselect() {
-		starIcon.setIconType(IconType.STAR_OUTLINE);
-		
-	}
-
-	@Override
-	public void setTale(String tale) {
-		// TODO Auto-generated method stub
+	public void unfavorite() {
+		favoriteIcon.setVisible(false);
 		
 	}
     

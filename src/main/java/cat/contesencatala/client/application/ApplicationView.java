@@ -6,12 +6,16 @@ import javax.inject.Inject;
 
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtplatform.mvp.client.ViewImpl;
+import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
-public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
+import gwt.material.design.client.ui.MaterialContainer;
+
+public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> implements ApplicationPresenter.MyView {
     
+	/*@UiField
+	MaterialNavSection navBar;*/
 	
 	
 	interface Binder extends UiBinder<Widget, ApplicationView> {
@@ -19,13 +23,58 @@ public class ApplicationView extends ViewImpl implements ApplicationPresenter.My
     Logger logger = Logger.getLogger(ApplicationView.class.getName());
     
     @UiField
-    SimplePanel main;
-    
+    MaterialContainer main;
+    @UiField
+    HTMLPanel menu;
+       
     @Inject
     ApplicationView(
             Binder uiBinder) {
-        initWidget(uiBinder.createAndBindUi(this));    
+        initWidget(uiBinder.createAndBindUi(this));
+       
+        bindSlot(ApplicationPresenter.SLOT_MENU,  menu);
+        
         bindSlot(ApplicationPresenter.SLOT_MAIN, main);
+       
+        
+       
     }
+    
+    /*@Override
+    public void addToSlot(Object slot, IsWidget content) {
+        if (slot == ApplicationPresenter.SLOT_MENU) {
+           main.add(content);
+        } else{
+        	 main.add(content);
+            //super.addToSlot(slot, content);
+        }
+    }*/
+
+	@Override
+	public void showTaleMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hideTaleMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	/*
+	@UiHandler("readBtn")
+	 void onClickReadBtn(ClickEvent e) {
+	
+		this.getUiHandlers().read();
+		
+	 }
+	
+	@UiHandler("favoriteBtn")
+	 void onClickFavBtn(ClickEvent e) {
+		this.getUiHandlers().favorite();
+		
+	 }*/
 
 }

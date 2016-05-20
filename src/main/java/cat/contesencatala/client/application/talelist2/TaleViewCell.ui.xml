@@ -1,0 +1,40 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
+	xmlns:o="urn:import:gwt.material.design.addins.client.overlay">
+
+	<ui:with field='res'
+		type='cat.contesencatala.client.resources.AppResources' />
+	<ui:with field='url' type='java.lang.String' />
+	<ui:with field='title' type='java.lang.String' />
+	<ui:with field='description' type='java.lang.String' />
+
+
+	<div class="card white">
+		<div class="card-image waves-effect waves-light">
+			<img src="{url}" class="activator responsive-img" />
+			<span class="card-title activator">
+				<span class="{res.style.readTitle}"><ui:text from='{title}'/></span>
+			</span>
+		</div>
+		<div class="card-content black-text">
+			<span class="material-label"><ui:text from='{description}'/></span>
+		</div>
+		<!-- <div class="card-action">
+			<a style="cursor: pointer;">
+				<span>Link 1</span>
+			</a>
+			<a style="cursor: pointer;">
+				<span>Link 1</span>
+			</a>
+		</div>-->
+	</div>
+
+	<!-- <m:MaterialCard backgroundColor="white"> <m:MaterialCardImage waves="LIGHT"> 
+		<m:MaterialImage url="{url}"/> <m:MaterialCardTitle text="{title}"/> </m:MaterialCardImage> 
+		<m:MaterialCardContent textColor="black"> <m:MaterialLabel text="I am a very 
+		simple card. I am good at containing small bits of information. I am convenient 
+		because I require little markup to use effectively." /> </m:MaterialCardContent> 
+		<m:MaterialCardAction> <m:MaterialLink text="Link 1" /> <m:MaterialLink text="Link 
+		1" /> </m:MaterialCardAction> </m:MaterialCard> -->
+</ui:UiBinder>

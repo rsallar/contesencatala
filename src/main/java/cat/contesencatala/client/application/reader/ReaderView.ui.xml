@@ -5,29 +5,26 @@
 
   <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
   <m:MaterialRow>
-  <m:MaterialColumn  grid="s10" addStyleNames="{res.style.reader}">
+  <m:MaterialColumn  grid="s12" addStyleNames="{res.style.center}">
 
-		<m:MaterialCard hoverable="true" backgroundColor="white">
-			<m:MaterialCardImage waves="LIGHT">
-				<m:MaterialImage
-					url="http://assets.materialup.com/uploads/ac9bf2ac-bf1c-4dc0-b655-0e13bf523bc8/20150710-__.png" />
-				<m:MaterialCardTitle text="Sample" />
+		<m:MaterialCard hoverable="false" backgroundColor="white">
+	
+			<m:MaterialCardImage waves="LIGHT" >
+				
+				<m:MaterialImage ui:field="image" />
+				
+				<m:MaterialCardTitle ui:field="title" addStyleNames="{res.style.readTitle}"/>
 			</m:MaterialCardImage>
-			<m:MaterialCardContent textColor="black">
-				<m:MaterialLabel
-					text="I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively." />
+			<m:MaterialCardContent textColor="black" addStyleNames="{res.style.content}">
+
+				<m:MaterialLabel ui:field="text"/>
+	
 			</m:MaterialCardContent>
-			<m:MaterialCardAction>
-				<m:MaterialLink text="Link 1" />
-				<m:MaterialLink text="Link 1" />
-			</m:MaterialCardAction>
+
 		</m:MaterialCard>
 
-		<m:MaterialButton ui:field="closeBtn" text="Back to Main Page"
-			backgroundColor="blue lighten-2" textColor="white" size="LARGE" />
-		<m:MaterialIcon iconType="CLOSE" addStyleNames="{res.style.closeIcon}"
-			waves="DEFAULT" enabled="true" circle="true" />
-			
+		<m:MaterialButton ui:field="back" text="Tornar"
+			backgroundColor="blue" textColor="white" />
 	  
   </m:MaterialColumn>
   

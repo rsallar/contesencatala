@@ -3,21 +3,14 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:m="urn:import:gwt.material.design.client.ui">
   
+   <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
+ 
     <g:HTMLPanel>
- <m:MaterialNavBar  backgroundColor="blue" activates="mysidenav">
-	
- </m:MaterialNavBar>
-
- <m:MaterialSideNav  m:id="mysidenav" type="OPEN" width="200" closeOnClick="true">
-  <m:MaterialNavBrand fontSize="20px">Contes en català</m:MaterialNavBrand>
-  <m:MaterialLink href="#home" iconType="HOME" iconPosition="LEFT" textColor="grey" text="Inici" />
-  <m:MaterialLink href="#talelist" iconType="BOOK" iconPosition="LEFT" textColor="blue" text="Contes" />
-  <m:MaterialLink iconType="STARS" iconPosition="LEFT" textColor="grey" text="Favorits" />
- 
- </m:MaterialSideNav>
- 
- 	<g:SimplePanel ui:field="main">
+        <g:HTMLPanel ui:field="menu"></g:HTMLPanel>
+      
+ 	    <m:MaterialContainer ui:field="main" addStyleNames="{res.style.main}">
  	 	
- 	</g:SimplePanel>
+ 	</m:MaterialContainer>
+ 	
 </g:HTMLPanel>
 </ui:UiBinder>

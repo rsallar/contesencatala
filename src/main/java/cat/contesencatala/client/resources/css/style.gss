@@ -1,5 +1,11 @@
-.star {
-   padding-top: 4px;
+.main{
+   
+}
+
+.readTitle{
+ background: rgba(0, 0, 0, .25);
+ width: 100%;
+ font-weight: 600;
 }
 
 .closeIcon{
@@ -10,8 +16,43 @@
    color:white;
 }
 
-.reader{
+.content{
+  line-height: 200%;
+}
+
+.center{
    float:none !important;
    margin-left: auto;
    margin-right: auto;
 }
+
+/*TALE VIEW*/
+
+.taleList{
+    padding: 0 !important;
+}
+
+.taleButton{
+    margin-bottom: 10px;
+    padding: 0 1rem !important;
+}
+
+.taleStar {
+   padding-top: 2px;
+   font-size:32px;
+}
+
+.floatLeft{
+	float:left;
+}
+
+.floatRight{
+	float:right;
+}
+
+.hideTale{
+    padding:0 !important;
+    height:0 !important;
+    border-bottom:0 !important;
+}
+

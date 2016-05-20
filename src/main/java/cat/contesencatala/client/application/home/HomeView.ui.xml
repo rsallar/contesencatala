@@ -1,9 +1,12 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-        xmlns:g='urn:import:com.google.gwt.user.client.ui'>
-
-    <g:HTMLPanel>
+        xmlns:g='urn:import:com.google.gwt.user.client.ui' 
+        xmlns:m="urn:import:gwt.material.design.client.ui"
+        xmlns:d="urn:import:gwt.material.design.client.ui">
         
-        <p>Hello world!</p>
+<ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
+    <g:HTMLPanel>
+    
+        <d:MaterialLabel text="Benviguts! per començar aneu al menú lateral i escolliu un conte."></d:MaterialLabel>
         
     </g:HTMLPanel>
 </ui:UiBinder>

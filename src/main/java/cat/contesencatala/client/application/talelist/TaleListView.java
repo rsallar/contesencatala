@@ -8,20 +8,23 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
 
 import cat.contesencatala.client.application.widgets.tale.TalePresenter;
-import gwt.material.design.client.ui.MaterialCollapsible;
+import cat.contesencatala.client.resources.AppResources;
+import gwt.material.design.client.ui.MaterialCollection;
 
 class TaleListView extends ViewImpl implements TaleListPresenter.MyView {
     interface Binder extends UiBinder<Widget, TaleListView> {
     }
 
     @UiField
-    MaterialCollapsible list;
+    MaterialCollection list;
+	private AppResources resources;
     
     
     
     @Inject
-    TaleListView(Binder uiBinder) {
+    TaleListView(Binder uiBinder, AppResources resources) {
     	initWidget(uiBinder.createAndBindUi(this));
+    	this.resources = resources;
         
     }
 
@@ -31,6 +34,31 @@ class TaleListView extends ViewImpl implements TaleListPresenter.MyView {
 	public void addTale(TalePresenter tale) {
 		list.add(tale);	
 	}
-    
+
+
+
+	@Override
+	public void hideTale(int i) {
+		list.getWidget(i).addStyleName(resources.style().hideTale());
+		
+	}
+
+
+
+	@Override
+	public void showAll() {
+		for (int i=0; i<list.getWidgetCount(); i++){
+			list.getWidget(i).removeStyleName(resources.style().hideTale());
+		}
+		
+	}
+
+
+
+	@Override
+	public void clear() {
+		list.clear();
+		
+	}
       
 }

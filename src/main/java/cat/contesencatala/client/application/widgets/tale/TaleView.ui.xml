@@ -5,17 +5,16 @@
              
   <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
  
-  <m:MaterialCollapsibleItem ui:field="item">
-   <m:MaterialCollapsibleHeader>
-    <m:MaterialLink ui:field="title" iconType="POLYMER" iconPosition="LEFT" textColor="black"/>
-    <m:MaterialIcon float="RIGHT" addStyleNames="{res.style.star}" ui:field="starIcon" iconType="STAR_OUTLINE" waves="DEFAULT" circle="true" />
-   </m:MaterialCollapsibleHeader>
-   
-   <m:MaterialCollapsibleBody ui:field="body">
-    <m:MaterialLabel  ui:field="description"/>
-    <m:MaterialButton ui:field="readBtn" text="LLegir" waves="LIGHT" backgroundColor="blue"  textColor="white" iconType="POLYMER" iconPosition="LEFT"/>
-   </m:MaterialCollapsibleBody>
-   
-  </m:MaterialCollapsibleItem>
+ 
+  <m:MaterialCollectionItem type="CHECKBOX" waves="DEFAULT" ui:field="item" >
+   <g:HTMLPanel tag="div"  width="100%">
+   <m:MaterialLink  ui:field="title"  fontSize="1.1em" iconType="BOOK" iconColor="blue" iconPosition="LEFT" textColor="black"/>
+   <m:MaterialLabel  ui:field="author" fontSize="1em" textColor="grey" />
+   </g:HTMLPanel>
+   <g:HTMLPanel tag="div" >
+   <m:MaterialIcon  iconColor="blue" visible="false" addStyleNames="{res.style.taleStar}" ui:field="favoriteIcon" iconType="FAVORITE"  circle="true" />
+    	
+	</g:HTMLPanel>
+  </m:MaterialCollectionItem>
   
 </ui:UiBinder>

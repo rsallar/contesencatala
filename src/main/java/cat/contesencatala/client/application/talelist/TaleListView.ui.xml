@@ -3,14 +3,15 @@
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
              xmlns:m="urn:import:gwt.material.design.client.ui">
              
-             
-             
-  <m:MaterialCollapsible type="POPOUT"  ui:field="list">
+  <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
+  <m:MaterialRow> 
+ 
+  <m:MaterialCollection ui:field="list" grid="s11" addStyleNames="{res.style.taleList} {res.style.center}">
   
   
 	  
- </m:MaterialCollapsible>
- 
-  
+  </m:MaterialCollection>
+
+  </m:MaterialRow>
    
 </ui:UiBinder>
