@@ -45,7 +45,7 @@ public class MenuPresenter extends PresenterWidget<MenuPresenter.MyView> impleme
     		if(tale.favorite){
     			listSearches.add(new SearchObject(IconType.FAVORITE, tale.title, token));
     		}else{
-    			listSearches.add(new SearchObject(IconType.BOOKMARK_OUTLINE, tale.title, token));
+    			listSearches.add(new SearchObject(IconType.BOOKMARK_BORDER, tale.title, token));
     		}
     			
     	}

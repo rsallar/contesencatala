@@ -4,7 +4,8 @@
 	xmlns:o="urn:import:gwt.material.design.addins.client.overlay" xmlns:h="urn:import:gwt.material.design.client.ui.html">
 
   <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
-  <m:MaterialRow>
+  
+  <m:MaterialRow ui:field="container">
   <m:MaterialColumn  grid="s12" addStyleNames="{res.style.center}">
 
 		<m:MaterialCard hoverable="false" backgroundColor="white">
@@ -28,7 +29,7 @@
 			backgroundColor="blue" textColor="white" />
 	  
   </m:MaterialColumn>
-  
+
   </m:MaterialRow>		
 
 </ui:UiBinder>

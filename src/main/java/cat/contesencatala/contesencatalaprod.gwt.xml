@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to='contesencatalaprod'>
   	<!-- Inherit the core Web Toolkit stuff. -->
-	<inherits name='com.google.gwt.user.User' />
-	
-   
-	<!-- GWTP -->
-	<inherits name="com.gwtplatform.mvp.MvpWithEntryPoint" />
-	<extend-configuration-property name="gin.ginjector.modules" value="cat.contesencatala.client.gin.ClientModule" />
-    <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
-    
-    <!-- MATERIAL -->
-	<inherits name="gwt.material.design.GwtMaterialWithJQuery" />
-	<inherits name="gwt.material.design.addins.GWTMaterialAddins"/>
-	
-	<!-- Logging  --> 
-	<inherits name="com.google.gwt.logging.Logging"/>
-	<set-property name="gwt.logging.enabled" value="TRUE"/>
-    <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>
-    <set-property name="gwt.logging.logLevel" value="FINE"/>
-    
-    <!-- GUAVA -->
-    <inherits name="com.google.common.collect.Collect"/>
-   
-    <set-configuration-property name="gwtp.prebootstrapper" value="cat.contesencatala.client.gin.PreBootstrapperImpl"/>
-
-	<set-configuration-property name="CssResource.enableGss" value="true" />
-
-	<set-property name="compiler.stackMode" value="native">
-	  <when-property-is name="superdevmode" value="on" />
-	</set-property>
-
-	<!-- Specify the paths for translatable code -->
-	<source path='client'/>
-	<source path='shared' />
+	<inherits name='cat.contesencatala.contesencatala' />
 	
 	
 </module>

@@ -12,14 +12,15 @@
 
 
 	<properties>
-		<gwtVersion>2.8.0-beta1</gwtVersion>
-		<gwtPluginVersion>2.8.0-beta1</gwtPluginVersion>
+		<gwtVersion>2.8.0-SNAPSHOT</gwtVersion>
+		<gwtPluginVersion>2.8.0-SNAPSHOT</gwtPluginVersion>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<target.jdk>1.8</target.jdk>
 		<gwtp.version>1.5.3</gwtp.version>
 		<gwt.material>1.5.1-SNAPSHOT</gwt.material>
+		<gwt.material.addin>1.5.1-SNAPSHOT</gwt.material.addin>
 		<guava>20.0-SNAPSHOT</guava>
 	</properties>
 
@@ -158,7 +159,7 @@
 		<dependency>
 			<groupId>com.github.gwtmaterialdesign</groupId>
 			<artifactId>gwt-material-addins</artifactId>
-			<version>${gwt.material}</version>
+			<version>${gwt.material.addin}</version>
 		</dependency>
 
 
@@ -193,11 +194,11 @@
 			<artifactId>gwtp-mvp-client</artifactId>
 			<version>${gwtp.version}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava-gwt</artifactId>
 			<version>${guava}</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>com.gwtplatform</groupId>
 			<artifactId>gwtp-dispatch-rest</artifactId>

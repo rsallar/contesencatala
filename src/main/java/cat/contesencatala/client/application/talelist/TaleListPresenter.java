@@ -20,6 +20,8 @@ import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
+import gwt.material.design.client.ui.animate.MaterialAnimator;
+import gwt.material.design.client.ui.animate.Transition;
 public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleListPresenter.MyProxy> implements TaleListUiHandlers {
     interface MyView extends View , HasUiHandlers<TaleListUiHandlers> {
 
@@ -92,7 +94,8 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     	}
     	
     	redrawSelectedTale();
-    	   	
+    	
+    
     }
     
     

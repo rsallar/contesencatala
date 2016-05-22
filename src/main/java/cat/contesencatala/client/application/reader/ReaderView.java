@@ -18,16 +18,21 @@ import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.resources.AppImagesSmall;
 import cat.contesencatala.client.resources.AppResources;
+import gwt.material.design.addins.client.overlay.MaterialOverlay;
 import gwt.material.design.client.constants.FlexAlignSelf;
 import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.ui.MaterialCardTitle;
 import gwt.material.design.client.ui.MaterialImage;
 import gwt.material.design.client.ui.MaterialLabel;
+import gwt.material.design.client.ui.MaterialRow;
 
 class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderPresenter.MyView {
     interface Binder extends UiBinder<Widget, ReaderView> {
     }
     Logger logger = Logger.getLogger(ReaderView.class.getName());
+    
+    @UiField
+    MaterialRow container;
     @UiField
     MaterialCardTitle title;
     @UiField
@@ -54,7 +59,8 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 				 getUiHandlers().favoriteClick();
 			}
 		});
-        
+      
+
     }
     
     @UiHandler("back")
@@ -78,6 +84,7 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 		String url = imageRes.getSafeUri().asString();
 		logger.fine("loading image from: "+url);
 		image.setUrl(url);
+		image.setWidth(container.getOffsetWidth()+"px");
 		//image.setHeight(imageRes.getHeight()+"px");
 		//image.setWidth(imageRes.getWidth()+"px");
 		text.setText(textRes.getText());
@@ -87,7 +94,7 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 
 	@Override
 	public void unfavorite() {
-		title.setIconType(IconType.FAVORITE_OUTLINE);
+		title.setIconType(IconType.FAVORITE_BORDER);
 		
 	}
 
