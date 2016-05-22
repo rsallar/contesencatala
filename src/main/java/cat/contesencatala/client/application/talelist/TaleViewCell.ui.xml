@@ -5,16 +5,20 @@
 
 	<ui:with field='res'
 		type='cat.contesencatala.client.resources.AppResources' />
-	<ui:with field='url' type='java.lang.String' />
+	<ui:with field='url' type='com.google.gwt.safehtml.shared.SafeUri' />
 	<ui:with field='title' type='java.lang.String' />
 	<ui:with field='description' type='java.lang.String' />
-
+	<ui:with field='iconClass' type='java.lang.String' />
 
 	<div class="card white">
-		<div class="card-image waves-effect waves-light">
-			<img src="{url}" class="activator responsive-img" />
-			<span class="card-title activator">
-				<span class="{res.style.readTitle}"><ui:text from='{title}'/></span>
+		<div class="card-image">
+			<img src="{url}" border='0' class="activator responsive-img" />
+			<span class="card-title activator {res.style.cardTitle}">
+				<span>
+					<ui:text from='{title}'/> 
+					<!-- <i class="material-icons" class="{iconStyle}">favorite</i>-->
+					<i class="{iconClass}">favorite</i>
+				</span>
 			</span>
 		</div>
 		<div class="card-content black-text">

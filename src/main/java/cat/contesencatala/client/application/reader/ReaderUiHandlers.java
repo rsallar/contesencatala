@@ -6,4 +6,6 @@ interface ReaderUiHandlers extends UiHandlers  {
 
 	public void back();
 
+	public void favoriteClick();
+
 }

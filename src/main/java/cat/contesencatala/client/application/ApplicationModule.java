@@ -9,7 +9,6 @@ import cat.contesencatala.client.application.login.LoginModule;
 import cat.contesencatala.client.application.reader.ReaderModule;
 import cat.contesencatala.client.application.talelist.TaleListModule;
 import cat.contesencatala.client.application.widgets.tale.TaleModule;
-import cat.contesencatala.client.application.talelist2.TaleList2Module;
 import cat.contesencatala.client.application.menu.MenuModule;
 
 public class ApplicationModule extends AbstractPresenterModule {
@@ -17,14 +16,13 @@ public class ApplicationModule extends AbstractPresenterModule {
     protected void configure() {
 
 		install(new MenuModule());
-		install(new TaleList2Module());
+		install(new TaleListModule());
 		install(new AboutModule());
 		install(new ReaderModule());
 		install(new TaleModule());
 		install(new ErrorModule());
 		install(new LoginModule());
 		install(new HomeModule());
-		install(new TaleListModule());
 	
         bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class,
                 ApplicationPresenter.MyProxy.class);

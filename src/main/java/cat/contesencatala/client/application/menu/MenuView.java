@@ -1,35 +1,65 @@
 package cat.contesencatala.client.application.menu;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.logical.shared.CloseEvent;
+import com.google.gwt.event.logical.shared.CloseHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
-import gwt.material.design.client.ui.MaterialLink;
-import gwt.material.design.client.ui.MaterialNavSection;
+import gwt.material.design.client.base.SearchObject;
+import gwt.material.design.client.ui.MaterialNavBar;
+import gwt.material.design.client.ui.MaterialSearch;
+import gwt.material.design.client.ui.MaterialSideNav;
 
 class MenuView extends ViewWithUiHandlers<MenuUiHandlers> implements MenuPresenter.MyView {
     interface Binder extends UiBinder<Widget, MenuView> {
     }
 
+  
     @UiField
-    MaterialLink favoriteBtn;
+    MaterialNavBar navBar, navBarSearch;
+    
     @UiField
-    MaterialNavSection navBarSection;
+    MaterialSideNav sideNav;
+    
+    @UiField 
+    MaterialSearch txtSearch;
+
    
     @Inject
     MenuView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
-        //navBarSection.removeStyleName("hide-on-med-and-down");
+        
+        
+              
+        
+        txtSearch.addCloseHandler(new CloseHandler<String>() {
+            @Override
+            public void onClose(CloseEvent<String> event) {
+                navBar.setVisible(true);
+                navBarSearch.setVisible(false);
+            }
+        });
     }
     
-    @UiHandler("favoriteBtn")
-	void onClickFavBtn(ClickEvent e) {
-		//this.getUiHandlers().favorite();
-		
-	 }
+    @UiHandler("btnSearch")
+    void onSearch(ClickEvent e){
+        navBarSearch.setVisible(true);
+        navBar.setVisible(false);
+
+    }
+
+	@Override
+	public void addListSearches(List<SearchObject> listSearches) {
+		txtSearch.setListSearches(listSearches);	
+	}
+      
 }

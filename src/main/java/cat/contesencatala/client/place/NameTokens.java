@@ -1,7 +1,6 @@
 package cat.contesencatala.client.place;
 
 public class NameTokens {
-	public static final String talelist2 = "/talelist2";
 
 	public static final String about = "/about";
 	public static final String reader = "/reader";
@@ -14,10 +13,6 @@ public class NameTokens {
 
 	public static String getAbout() {
 		return about;
-	}
-
-	public static String getTalelist2() {
-		return talelist2;
 	}
 
 }

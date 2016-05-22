@@ -1,13 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui"
-             xmlns:m="urn:import:gwt.material.design.client.ui">
+             xmlns:m="urn:import:gwt.material.design.client.ui" xmlns:h="urn:import:gwt.material.design.client.ui.html">
   
    <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
  
     <g:HTMLPanel>
         <g:HTMLPanel ui:field="menu"></g:HTMLPanel>
-      
  	    <m:MaterialContainer ui:field="main" addStyleNames="{res.style.main}">
  	 	
  	</m:MaterialContainer>

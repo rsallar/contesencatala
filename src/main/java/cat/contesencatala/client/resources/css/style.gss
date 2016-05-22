@@ -2,10 +2,19 @@
    
 }
 
-.readTitle{
+.search input{
+   display: initial !important;
+}
+
+.cardTitle{
  background: rgba(0, 0, 0, .25);
  width: 100%;
- font-weight: 600;
+ font-weight: 400;
+}
+
+.cardTitle i{
+	font-size:35px;
+	float:right;
 }
 
 .closeIcon{

@@ -2,13 +2,14 @@ package cat.contesencatala.client.resources;
 
 import com.google.gwt.resources.client.ClientBundleWithLookup;
 import com.google.gwt.resources.client.CssResource;
+import com.google.gwt.resources.client.CssResource.NotStrict;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.resources.client.TextResource;
 import com.google.gwt.user.cellview.client.CellList;
 
 public interface AppResources extends ClientBundleWithLookup, CellList.Resources  {
     
-	interface Normalize extends CssResource {
+	interface MyOverride extends CssResource {
 		
 		 
     }
@@ -23,21 +24,24 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
         String floatRight();
         String center();
         String main();
-        String readTitle();
+        String cardTitle();
         String content();
+        String search();
     }	
    
     @Source("css/style.gss")
     Style style();
-    @Source("css/normalize.gss")
-    Normalize normalize();
+   
+    @NotStrict
+    @Source("css/myoverride.gss")
+    MyOverride override();
     
     /**TALES**/
     
     @Source("tales/aneguetlleig.txt")
     TextResource  aneguetlleig();
     
-    @Source("tales/caputxeta.txt")
+    @Source("tales/caputxeta.txt" )
     TextResource  caputxeta();
     
     
@@ -71,7 +75,7 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
     
     /*IMAGES*/
     @Source("talesimg/caputxeta.jpg")
-    ImageResource caputxeta_img();
+    ImageResource  caputxeta_img();
     
     @Source("talesimg/aneguetlleig.png")
     ImageResource aneguetlleig_img();
@@ -104,9 +108,5 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
     @Source("talesimg/princepfelic.png")
     ImageResource princepfelic_img();
     
-
-    /*APP IMG*/
-    @Source("appimg/background.jpg")
-    ImageResource  background();
-   
+  
 }

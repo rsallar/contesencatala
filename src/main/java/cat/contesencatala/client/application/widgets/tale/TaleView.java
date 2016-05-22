@@ -9,7 +9,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
-import cat.contesencatala.client.resources.AppResources;
+import cat.contesencatala.client.resources.AppImages;
 import gwt.material.design.client.constants.Display;
 import gwt.material.design.client.constants.FlexJustifyContent;
 import gwt.material.design.client.constants.IconType;
@@ -37,12 +37,12 @@ class TaleView extends ViewWithUiHandlers<TaleUiHandlers> implements TalePresent
     MaterialLabel author;
     
 
-	private AppResources bundle;
+	private AppImages bundle;
   
     
 
     @Inject
-    TaleView(Binder uiBinder,  AppResources bundle) {
+    TaleView(Binder uiBinder,  AppImages bundle) {
         initWidget(uiBinder.createAndBindUi(this));
         this.bundle = bundle;
         item.setDisplay(Display.FLEX);

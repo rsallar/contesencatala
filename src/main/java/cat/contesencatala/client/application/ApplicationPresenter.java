@@ -24,7 +24,7 @@ public class ApplicationPresenter
 	
 	Logger logger = Logger.getLogger(ApplicationPresenter.class.getName());
 	private PlaceManager placeManager;
-	private Model model;
+
 	private MenuPresenter menuPresenter;
 	
     interface MyView extends View, HasUiHandlers<ApplicationUiHandlers> {
@@ -49,20 +49,20 @@ public class ApplicationPresenter
             MyProxy proxy,
             PlaceManager placeManager,
             MenuPresenter menuPresenter,
-            Model model) {
+            Persistance persistance) {
     	
         super(eventBus, view, proxy, RevealType.Root);
         this.placeManager = placeManager;
-        this.model = model;
         getView().setUiHandlers(this);
         addRegisteredHandler(TaleSelectedEvent.getType(), this);
         this.menuPresenter = menuPresenter;
+        persistance.load();
         
     }
     
     @Override
     protected void onBind() {  
-    	addToSlot(SLOT_MENU, menuPresenter);
+    	setInSlot(SLOT_MENU, menuPresenter);
 
     	logger.info("ApplicationPresenter bind!");
     	
@@ -74,10 +74,7 @@ public class ApplicationPresenter
     
     @Override
     protected void onReveal() {  
-    	if(placeManager.getCurrentPlaceRequest().getNameToken().equals(NameTokens.reader)){
-    		logger.info("eureka");
-    	}
-    	
+ 
     }
     @Override
     protected void onReset(){
@@ -91,16 +88,4 @@ public class ApplicationPresenter
 		
 	}
 
-	/*
-	@Override
-	public void read() {
-	
-	}
-
-	@Override
-	public void favorite() {
-	
-		TaleFavoritedEvent.fire(this);
-		
-	}*/
 }

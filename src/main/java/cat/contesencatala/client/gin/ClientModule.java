@@ -23,8 +23,9 @@ import com.gwtplatform.mvp.client.gin.DefaultModule;
 import com.gwtplatform.mvp.shared.proxy.RouteTokenFormatter;
 
 import cat.contesencatala.client.application.ApplicationModule;
+import cat.contesencatala.client.application.Persistance;
 import cat.contesencatala.client.application.model.Model;
-import cat.contesencatala.client.application.talelist2.TaleViewCell;
+import cat.contesencatala.client.application.talelist.TaleViewCell;
 import cat.contesencatala.client.place.NameTokens;
 import cat.contesencatala.client.resources.ResourceLoader;
 
@@ -52,6 +53,7 @@ public class ClientModule extends AbstractPresenterModule {
     	bind(ResourceLoader.class).asEagerSingleton();
     	bind(TaleViewCell.class).asEagerSingleton();
     	bind(Model.class).asEagerSingleton();
+    	bind(Persistance.class).asEagerSingleton();
     	
        /* bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);*/
     }

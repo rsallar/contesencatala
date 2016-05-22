@@ -7,18 +7,18 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
 
-import cat.contesencatala.client.resources.AppResources;
+import cat.contesencatala.client.resources.AppImages;
 import gwt.material.design.client.ui.MaterialImage;
 
 public class HomeView extends ViewImpl implements HomePresenter.MyView {
     interface Binder extends UiBinder<Widget, HomeView> {
     }
 
-	private AppResources res;
+	private AppImages res;
     
     
     @Inject
-    HomeView(Binder uiBinder, AppResources res) {
+    HomeView(Binder uiBinder, AppImages res) {
         initWidget(uiBinder.createAndBindUi(this));
         this.res = res;
         

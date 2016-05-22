@@ -13,6 +13,7 @@ import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
+import cat.contesencatala.client.application.Persistance;
 import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
@@ -23,10 +24,15 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 		void goTop();
 
 		void setParams(Tale taleById);
+
+		void unfavorite();
+
+		void favorite();
     }
     Logger logger = Logger.getLogger(ReaderPresenter.class.getName());
     PlaceManager placeManager;
 	private Model model;
+	private Persistance persistance;
     @NameToken(NameTokens.reader)
     @ProxyStandard
     interface MyProxy extends ProxyPlace<ReaderPresenter> {
@@ -37,11 +43,12 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
             EventBus eventBus,
             MyView view, 
             MyProxy proxy,
-            PlaceManager placeManager, Model model) {
+            PlaceManager placeManager, Model model, Persistance persistance) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
         this.placeManager = placeManager;
         getView().setUiHandlers(this);
         this.model = model;
+        this.persistance = persistance;
     }
     
     @Override
@@ -62,8 +69,27 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 	@Override
 	public void onReveal() {
 		String taleId = placeManager.getCurrentPlaceRequest().getParameter(NameParams.taleId, null);
-		getView().setParams(model.getTaleById(taleId));
+		model.selectedTale = model.getTaleById(taleId);
+		getView().setParams(model.selectedTale);
+		if(model.selectedTale.favorite){
+			getView().favorite();	
+		}else{
+			getView().unfavorite();
+		}
 		getView().goTop();
+		
 	}
+
+	@Override
+	public void favoriteClick() {
+		if(model.selectedTale.favorite){
+			getView().unfavorite();	
+		}else{
+			getView().favorite();
+		}
+		model.selectedTale.favorite = !model.selectedTale.favorite;
+		persistance.save(model.selectedTale);
+	}
+	
 	
 }

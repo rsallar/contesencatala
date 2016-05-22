@@ -1,4 +1,4 @@
-package cat.contesencatala.client.application.talelist2;
+package cat.contesencatala.client.application.talelist;
 
 import java.util.logging.Logger;
 
@@ -10,39 +10,57 @@ import com.google.gwt.dom.client.EventTarget;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
+import com.google.gwt.safehtml.shared.SafeUri;
 import com.google.gwt.uibinder.client.UiRenderer;
 import com.google.inject.Inject;
 
 import cat.contesencatala.client.application.model.Tale;
-import cat.contesencatala.client.resources.AppResources;
+import cat.contesencatala.client.resources.AppImagesSmall;
 
 public class TaleViewCell extends AbstractCell<Tale> {
 	
 	 Logger logger = Logger.getLogger(TaleViewCell.class.getName());
   
 	interface MyUiRenderer extends UiRenderer {
-     void render(SafeHtmlBuilder sb, String title, String url, String description);
+     void render(SafeHtmlBuilder sb, String title, SafeUri url,
+    		 String description, String iconClass);
   }
   
 	private static MyUiRenderer renderer = GWT.create(MyUiRenderer.class);
   
-  private AppResources res;
+  private AppImagesSmall res;
+
+private boolean favoriteMode;
   
   @Inject
-  TaleViewCell(AppResources res){
+  TaleViewCell(AppImagesSmall res){
 	  super("click");
 	  this.res=res;
   }
 
   @Override
   public void render(Context context, Tale value, SafeHtmlBuilder builder) {
+	  
+	if(favoriteMode && !value.favorite){
+		return;
+	}
+	
 	ImageResource imgRes = (ImageResource) res.getResource(value.id+"_img");
 
-	String safeUrl = imgRes.getSafeUri().asString();
 	logger.fine("rendering id: "+value.id);
-
-    renderer.render(builder, value.title, safeUrl, value.author);
+	
+	
+	
+    renderer.render(builder, value.title, imgRes.getSafeUri(), value.author, getIconClass(value));
   }
+
+private String getIconClass(Tale value) {
+	String iconClass = "material-icons";
+	if(!value.favorite){
+		iconClass = iconClass + " hide";
+	}
+	return iconClass;
+}
   @Override
   public void onBrowserEvent(Context context, Element parent, Tale value, NativeEvent event,
       ValueUpdater<Tale> valueUpdater) {
@@ -58,6 +76,10 @@ public class TaleViewCell extends AbstractCell<Tale> {
 
   private void doAction(Tale value, ValueUpdater<Tale> valueUpdater) {
      valueUpdater.update(value);
+  }
+  
+  public void setFavoriteMode(boolean favoriteMode){
+	  this.favoriteMode = favoriteMode;
   }
   
 }

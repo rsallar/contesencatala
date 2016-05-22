@@ -9,7 +9,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>GWT Maven Archetype</name>
 
-	
+
 
 	<properties>
 		<gwtVersion>2.8.0-beta1</gwtVersion>
@@ -17,12 +17,13 @@
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
-        <target.jdk>1.8</target.jdk>
-        <gwtp.version>1.6-SNAPSHOT</gwtp.version>
-        <gwt.material>1.5.1-SNAPSHOT</gwt.material>
+		<target.jdk>1.8</target.jdk>
+		<gwtp.version>1.5.3</gwtp.version>
+		<gwt.material>1.5.1-SNAPSHOT</gwt.material>
+		<guava>20.0-SNAPSHOT</guava>
 	</properties>
 
-	
+
 
 	<build>
 
@@ -31,15 +32,15 @@
 		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
 		<resources>
-             <resource>
-                <directory>src/main/java</directory>
-                <includes>
-               		<include>**</include>
-           		</includes>
-           		
-            </resource>
-        </resources>
-        
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+
+			</resource>
+		</resources>
+
 		<plugins>
 
 			<!-- GWT Maven Plugin -->
@@ -50,25 +51,25 @@
 				<executions>
 					<execution>
 						<goals>
-						    <goal>resources</goal>
+							<goal>resources</goal>
 							<goal>i18n</goal>
 							<goal>compile</goal>
 							<goal>generateAsync</goal>
 							<!-- <goal>test</goal> -->
-							
+
 						</goals>
 					</execution>
 				</executions>
 				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
 					documentation at codehaus.org -->
 				<configuration>
-				 	<logLevel>INFO</logLevel>
+					<logLevel>INFO</logLevel>
 					<strict>true</strict>
 					<copyWebapp>true</copyWebapp>
 					<runTarget>index.html</runTarget>
 					<hostedWebapp>${webappDirectory}</hostedWebapp>
 					<i18nMessagesBundle>cat.contesencatala.client.Messages</i18nMessagesBundle>
-					<!-- <generateJsInteropExports></generateJsInteropExports>  -->
+					<!-- <generateJsInteropExports></generateJsInteropExports> -->
 					<modules>
 						<module>cat.contesencatala.contesencatala</module>
 					</modules>
@@ -92,16 +93,16 @@
 					<webappDirectory>${webappDirectory}</webappDirectory>
 				</configuration>
 			</plugin>
-			 <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>${target.jdk}</source>
-                    <target>${target.jdk}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${target.jdk}</source>
+					<target>${target.jdk}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
@@ -139,7 +140,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+
 	<dependencies>
 
 		<dependency>
@@ -153,14 +154,14 @@
 			<artifactId>gwt-material</artifactId>
 			<version>${gwt.material}</version>
 		</dependency>
-		
+
 		<dependency>
-	<groupId>com.github.gwtmaterialdesign</groupId>
-	<artifactId>gwt-material-addins</artifactId>
-	<version>${gwt.material}</version>
-</dependency>
-		
-		
+			<groupId>com.github.gwtmaterialdesign</groupId>
+			<artifactId>gwt-material-addins</artifactId>
+			<version>${gwt.material}</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
@@ -192,7 +193,11 @@
 			<artifactId>gwtp-mvp-client</artifactId>
 			<version>${gwtp.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava-gwt</artifactId>
+			<version>${guava}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.gwtplatform</groupId>
 			<artifactId>gwtp-dispatch-rest</artifactId>
@@ -238,7 +243,7 @@
 			<artifactId>slf4j-log4j12</artifactId> <version>1.7.6</version> </dependency> -->
 
 	</dependencies>
-	
+
 	<repositories>
 		<repository>
 			<id>sonatype.snapshots</id>
@@ -269,32 +274,32 @@
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
-			
-				<id>sonatype.snapshots</id>
-				<name>Sonatype snapshot repository</name>
-				<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-				<snapshots>
-					<enabled>true</enabled>
-				</snapshots>
-			</pluginRepository>
-			<pluginRepository>
-				<id>google.snapshots</id>
-				<name>google snapshot repository</name>
-				<url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-				<snapshots>
-					<enabled>true</enabled>
-				</snapshots>
-			</pluginRepository>
-			<pluginRepository>
-				<id>codehaus</id>
-				<url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
-				<snapshots>
-					<enabled>true</enabled>
-				</snapshots>
-				<releases>
-					<enabled>true</enabled>
-				</releases>
-			</pluginRepository>
+
+			<id>sonatype.snapshots</id>
+			<name>Sonatype snapshot repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>google.snapshots</id>
+			<name>google snapshot repository</name>
+			<url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>codehaus</id>
+			<url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
 	</pluginRepositories>
 
 	<artifactId>contesencatala</artifactId>
