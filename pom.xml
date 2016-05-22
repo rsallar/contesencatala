@@ -21,7 +21,6 @@
 		<gwtp.version>1.5.3</gwtp.version>
 		<gwt.material>1.5.1-SNAPSHOT</gwt.material>
 		<gwt.material.addin>1.5.1-SNAPSHOT</gwt.material.addin>
-		<guava>20.0-SNAPSHOT</guava>
 	</properties>
 
 
@@ -194,11 +193,7 @@
 			<artifactId>gwtp-mvp-client</artifactId>
 			<version>${gwtp.version}</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava-gwt</artifactId>
-			<version>${guava}</version>
-		</dependency>-->
+
 		<dependency>
 			<groupId>com.gwtplatform</groupId>
 			<artifactId>gwtp-dispatch-rest</artifactId>
