@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module rename-to='contesencatalaprod'>
-  	<!-- Inherit the core Web Toolkit stuff. -->
-	<inherits name='cat.contesencatala.contesencatala' />
-	
-	
-</module>

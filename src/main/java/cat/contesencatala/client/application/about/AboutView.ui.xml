@@ -1,5 +1,13 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-             xmlns:g="urn:import:com.google.gwt.user.client.ui">
-    <g:SimplePanel ui:field="main"/>
+             xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui">
+    <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
+   <g:HTMLPanel addStyleNames="{res.style.about}">
+   <m:MaterialTitle title="Sobre l'aplicació" description="Gràcies per l'interés!"/>
+   
+   <m:MaterialTitle title="Crèdit per les imatges" description="Utilitzem imatges obertes de dibuixants de la web. En la següent llista us oferim el seu contacte."/>
+    <m:MaterialCollection ui:field="collection">
+ 
+   </m:MaterialCollection >
+   </g:HTMLPanel>
 </ui:UiBinder>

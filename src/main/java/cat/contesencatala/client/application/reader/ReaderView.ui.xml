@@ -6,7 +6,7 @@
   <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
   
   <m:MaterialRow ui:field="container">
-  <m:MaterialColumn  grid="s12" addStyleNames="{res.style.center}">
+  <m:MaterialColumn  grid="s12" addStyleNames="{res.style.readerContainer}">
 
 		<m:MaterialCard hoverable="false" backgroundColor="white">
 	

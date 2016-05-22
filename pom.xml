@@ -12,7 +12,7 @@
 
 
 	<properties>
-		<gwtVersion>2.8.0-SNAPSHOT</gwtVersion>
+		<gwtVersion>2.7.0</gwtVersion>
 		<gwtPluginVersion>2.8.0-SNAPSHOT</gwtPluginVersion>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -23,7 +23,7 @@
 			<m:MaterialLink href="#talelist?favorite=true" 
 				iconType="STARS" iconPosition="LEFT" textColor="blue" text="Favorits" />
 			<m:MaterialLink href="#about" iconType="INFO_OUTLINE" 
-				iconPosition="LEFT" textColor="blue" text="Sobre nosaltres" />
+				iconPosition="LEFT" textColor="blue" text="Sobre l'aplicació" />
 
 		</m:MaterialSideNav>
 	</m:MaterialHeader>

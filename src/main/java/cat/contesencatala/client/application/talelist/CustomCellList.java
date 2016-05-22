@@ -7,6 +7,7 @@ import java.util.List;
 import com.google.gwt.cell.client.Cell;
 import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
@@ -65,8 +66,26 @@ public class CustomCellList<T> extends CellList<T>{
 	      SafeHtmlBuilder cellBuilder = new SafeHtmlBuilder();
 	      Context context = new Context(i, 0, getValueKey(value));
 	      cell.render(context, value, cellBuilder);
-	      sb.append(TEMPLATE.div(i, classesBuilder.toString(), cellBuilder.toSafeHtml()));
+	      sb.append(TEMPLATE.div(i, parentClassName, cellBuilder.toSafeHtml()));
 	    }
+	  }
+	
+	@Override
+	  protected void setKeyboardSelected(int index, boolean selected, boolean stealFocus) {
+		/*
+	    if (!isRowWithinBounds(index)) {
+	      return;
+	    }
+
+	    Element elem = getRowElement(index);
+	    if (!selected || isFocused || stealFocus) {
+	      setStyleName(elem, style.cellListKeyboardSelectedItem(), selected);
+	    }
+	    setFocusable(elem, selected);
+	    if (selected && stealFocus && !cellIsEditing) {
+	      elem.focus();
+	      onFocus();
+	    }*/
 	  }
 	
 	private static Resources getDefaultResources() {

@@ -9,9 +9,13 @@ import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
+import cat.contesencatala.client.application.model.Model;
+import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameTokens;
 public class AboutPresenter extends Presenter<AboutPresenter.MyView, AboutPresenter.MyProxy>  {
     interface MyView extends View  {
+
+		void addCredit(String title, String photoCreditUrl);
     }
     
 
@@ -20,13 +24,24 @@ public class AboutPresenter extends Presenter<AboutPresenter.MyView, AboutPresen
     interface MyProxy extends ProxyPlace<AboutPresenter> {
     }
 
+	private Model model;
+
     @Inject
     AboutPresenter(
             EventBus eventBus,
             MyView view, 
-            MyProxy proxy) {
+            MyProxy proxy,
+            Model model) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
-        
+        this.model = model;
+    }
+    
+    @Override
+    public void onBind(){
+    	
+    	for(Tale tale: model.tales){
+    		getView().addCredit(tale.title, tale.photoCreditUrl);
+    	}
     }
     
     

@@ -6,11 +6,13 @@ public class Tale {
 	public String title;
 	public String author;
 	public boolean favorite;
+	public String photoCreditUrl;
 	
-	public Tale(String id, String title, String author) {
+	public Tale(String id, String title, String author, String photoCreditUrl) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
+		this.photoCreditUrl = photoCreditUrl;
 	}
 
 }
