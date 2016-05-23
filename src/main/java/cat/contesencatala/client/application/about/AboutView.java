@@ -45,6 +45,12 @@ class AboutView extends ViewImpl implements AboutPresenter.MyView {
 
 	}
 	
+	@Override
+	public void goTop() {
+		Window.scrollTo(0 ,0);		
+	}
+    
+	
 	ClickHandler handler = new ClickHandler() {
 		
 		@Override
@@ -55,6 +61,8 @@ class AboutView extends ViewImpl implements AboutPresenter.MyView {
 			
 		}
 	};
+	
+	
     
    
 }

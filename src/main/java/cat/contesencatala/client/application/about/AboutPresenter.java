@@ -16,6 +16,8 @@ public class AboutPresenter extends Presenter<AboutPresenter.MyView, AboutPresen
     interface MyView extends View  {
 
 		void addCredit(String title, String photoCreditUrl);
+
+		void goTop();
     }
     
 
@@ -44,5 +46,8 @@ public class AboutPresenter extends Presenter<AboutPresenter.MyView, AboutPresen
     	}
     }
     
-    
+    @Override
+    public void onReveal(){
+    	getView().goTop();
+    }
 }

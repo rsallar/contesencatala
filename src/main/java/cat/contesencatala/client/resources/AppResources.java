@@ -33,9 +33,9 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
     @Source("css/style.gss")
     Style style();
    
-    @NotStrict
+    /*@NotStrict
     @Source("css/myoverride.gss")
-    MyOverride override();
+    MyOverride override();*/
     
     /**TALES**/
     

@@ -8,5 +8,7 @@
     
         <d:MaterialLabel text="Benviguts! per començar aneu al menú lateral i escolliu un conte."></d:MaterialLabel>
         
+        <d:MaterialButton ui:field="testButton" text="test compres"></d:MaterialButton>
+        
     </g:HTMLPanel>
 </ui:UiBinder>

@@ -38,9 +38,7 @@ class MenuView extends ViewWithUiHandlers<MenuUiHandlers> implements MenuPresent
     MenuView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
         
-        
-              
-        
+
         txtSearch.addCloseHandler(new CloseHandler<String>() {
             @Override
             public void onClose(CloseEvent<String> event) {

@@ -2,6 +2,7 @@ package cat.contesencatala.client.application.talelist;
 
 import java.util.logging.Logger;
 
+import com.google.gwt.user.client.Window;
 import com.google.gwt.view.client.HasData;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.inject.Inject;
@@ -20,8 +21,6 @@ import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
-import gwt.material.design.client.ui.animate.MaterialAnimator;
-import gwt.material.design.client.ui.animate.Transition;
 public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleListPresenter.MyProxy> implements TaleListUiHandlers {
     interface MyView extends View , HasUiHandlers<TaleListUiHandlers> {
 
@@ -34,6 +33,8 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 		void redraw();
 
 		void init();
+
+		void goTop();
     }
     Logger logger = Logger.getLogger(TaleListPresenter.class.getName());
 
@@ -71,7 +72,7 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
        
     @Override
     protected void onReveal(){
-    	
+    	getView().goTop();
     }
     
     @Override

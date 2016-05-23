@@ -15,6 +15,8 @@ import cat.contesencatala.client.place.NameTokens;
 
 public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter.MyProxy> {
     interface MyView extends View {
+
+		void goTop();
     }
     Logger logger = Logger.getLogger(HomePresenter.class.getName());
     @ProxyStandard
@@ -33,5 +35,10 @@ public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter
     @Override
     protected void onBind() {    	
     	logger.info("HomePresenter bind!");
+    }
+    
+    @Override
+    public void onReveal(){
+    	getView().goTop();
     }
 }

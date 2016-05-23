@@ -81,9 +81,9 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 		TextResource textRes = (TextResource) resources.getResource(tale.id);	
 		ImageResource imageRes = (ImageResource) bundle.getResource(tale.id+"_img");
 		
-		String url = imageRes.getSafeUri().asString();
-		logger.fine("loading image from: "+url);
-		image.setUrl(url);
+		//String url = imageRes.getSafeUri().asString();
+		//logger.fine("loading image from: "+url);
+		image.setUrl(imageRes.getSafeUri().asString());
 		image.setWidth(container.getOffsetWidth()+"px");
 		//image.setHeight(imageRes.getHeight()+"px");
 		//image.setWidth(imageRes.getWidth()+"px");

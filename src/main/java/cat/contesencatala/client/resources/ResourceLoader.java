@@ -15,6 +15,6 @@ public class ResourceLoader {
     	logger.info("ResourceLoader loading styles...");
     	
         appResources.style().ensureInjected();
-        appResources.override().ensureInjected();
+        //appResources.override().ensureInjected();
     }
 }

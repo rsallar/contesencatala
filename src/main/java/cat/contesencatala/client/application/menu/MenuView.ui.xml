@@ -14,7 +14,7 @@
             <m:MaterialSearch ui:field="txtSearch" addStyleNames="{res.style.search}" placeholder="Cerca un conte..." iconColor="black"  active="true" shadow="1"/>
         </m:MaterialNavBar>
 
-		<m:MaterialSideNav ui:field="sideNav" m:id="mysidenav"  type="CLOSE" width="300" closeOnClick="true">
+		<m:MaterialSideNav ui:field="sideNav" m:id="mysidenav"  type="PUSH" width="300" closeOnClick="true">
 			<m:MaterialNavBrand>Contes en català</m:MaterialNavBrand>
 			<m:MaterialLink href="#home" iconType="HOME" 
 					iconPosition="LEFT" textColor="blue" text="Inici" />
