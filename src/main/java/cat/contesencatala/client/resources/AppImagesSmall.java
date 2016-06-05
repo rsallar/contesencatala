@@ -9,6 +9,9 @@ public interface AppImagesSmall extends ClientBundleWithLookup {
     @Source("talesimgsmall/caputxeta.png")
     ImageResource  caputxeta_img();
     
+    @Source("talesimgsmall/home.png")
+    ImageResource  home_img();
+    
     @Source("talesimgsmall/aneguetlleig.png")
     ImageResource aneguetlleig_img();
     

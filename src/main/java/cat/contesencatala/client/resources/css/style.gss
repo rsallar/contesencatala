@@ -1,16 +1,32 @@
+@external card-content side-nav active;
 .main{
-    margin-top: 64px;
+   padding-top: 75px !important; 
 }
+
+.side-nav li:hover, .side-nav li.active {
+    background-color: #FEFEFE;
+}
+
+.card-content{
+background-color: #e0f2f1
+}
+
+html{
+ background-image: resourceUrl("background");
+ }
 
 .about{
     padding-left: 15px;
     padding-right: 15px;
-    /* padding-top: 5px; */
     padding-bottom: 15px;
 }
 
 .search input{
    display: initial !important;
+}
+
+.favorite{
+   color:#FF5252;
 }
 
 .cardTitle{
@@ -32,12 +48,22 @@
    color:white;
 }
 
+.homeButton{
+	margin: 5px;
+}
+
 .content{
   line-height: 200%;
 }
-.readerContainer{
-padding-top: 0.5rem;
+
+
+
+.readerCard{
+margin:auto;
+max-width:700px;
+
 }
+
 /*TALE VIEW*/
 
 .taleList{
@@ -67,4 +93,6 @@ padding-top: 0.5rem;
     height:0 !important;
     border-bottom:0 !important;
 }
+
+
 

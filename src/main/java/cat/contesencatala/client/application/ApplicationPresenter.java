@@ -13,25 +13,20 @@ import com.gwtplatform.mvp.client.presenter.slots.PermanentSlot;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 
-import cat.contesencatala.client.application.events.TaleSelectedEvent;
-import cat.contesencatala.client.application.events.TaleSelectedEvent.TaleSelectedHandler;
 import cat.contesencatala.client.application.menu.MenuPresenter;
-import cat.contesencatala.client.application.model.Model;
-import cat.contesencatala.client.place.NameTokens;
+import cat.contesencatala.client.services.AdMob;
 
 public class ApplicationPresenter
-        extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy>  implements TaleSelectedHandler, ApplicationUiHandlers{
+        extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy>  implements ApplicationUiHandlers{
 	
 	Logger logger = Logger.getLogger(ApplicationPresenter.class.getName());
 	private PlaceManager placeManager;
 
 	private MenuPresenter menuPresenter;
+	private AdMob AdMob;
 	
     interface MyView extends View, HasUiHandlers<ApplicationUiHandlers> {
 
-		void showTaleMenu();
-
-		void hideTaleMenu();
     }
 
     @ProxyStandard
@@ -49,12 +44,12 @@ public class ApplicationPresenter
             MyProxy proxy,
             PlaceManager placeManager,
             MenuPresenter menuPresenter,
-            Persistance persistance) {
+            Persistance persistance, AdMob AdMob) {
     	
         super(eventBus, view, proxy, RevealType.Root);
+        this.AdMob = AdMob;
         this.placeManager = placeManager;
         getView().setUiHandlers(this);
-        addRegisteredHandler(TaleSelectedEvent.getType(), this);
         this.menuPresenter = menuPresenter;
         persistance.load();
         
@@ -63,29 +58,9 @@ public class ApplicationPresenter
     @Override
     protected void onBind() {  
     	setInSlot(SLOT_MENU, menuPresenter);
-
+    	AdMob.prepareAdds();
     	logger.info("ApplicationPresenter bind!");
     	
     }
-    
-    void registerTowardsHistory() {
-	   // placeManager.getEventBus().
-	  }
-    
-    @Override
-    protected void onReveal() {  
- 
-    }
-    @Override
-    protected void onReset(){
-    	getView().hideTaleMenu();
-    }
-
-	@Override
-	public void onTaleSelected(TaleSelectedEvent event) {
-		logger.fine("tale selected");
-		getView().showTaleMenu();
-		
-	}
-
+   
 }

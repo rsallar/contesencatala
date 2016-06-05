@@ -2,8 +2,9 @@ package cat.contesencatala.client.resources;
 
 import com.google.gwt.resources.client.ClientBundleWithLookup;
 import com.google.gwt.resources.client.CssResource;
-import com.google.gwt.resources.client.CssResource.NotStrict;
 import com.google.gwt.resources.client.ImageResource;
+import com.google.gwt.resources.client.ImageResource.ImageOptions;
+import com.google.gwt.resources.client.ImageResource.RepeatStyle;
 import com.google.gwt.resources.client.TextResource;
 import com.google.gwt.user.cellview.client.CellList;
 
@@ -22,17 +23,24 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
         String taleButton();
         String floatLeft();
         String floatRight();
-        String readerContainer();
+        String readerCard();
         String main();
         String cardTitle();
         String content();
         String search();
         String about();
+		String favorite();
+		String homeButton();
+        
     }	
    
     @Source("css/style.gss")
     Style style();
-   
+    
+    /**APP IMAGES*/
+    @Source("appimg/background.png")
+	@ImageOptions(repeatStyle=RepeatStyle.Both)
+	ImageResource background();
     /*@NotStrict
     @Source("css/myoverride.gss")
     MyOverride override();*/

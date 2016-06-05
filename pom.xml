@@ -19,8 +19,8 @@
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<target.jdk>1.8</target.jdk>
 		<gwtp.version>1.5.3</gwtp.version>
-		<gwt.material>1.5.1-SNAPSHOT</gwt.material>
-		<gwt.material.addin>1.5.1-SNAPSHOT</gwt.material.addin>
+		<gwt.material>1.6.0-SNAPSHOT</gwt.material>
+		<gwt.material.addin>1.6.0-SNAPSHOT</gwt.material.addin>
 	</properties>
 
 

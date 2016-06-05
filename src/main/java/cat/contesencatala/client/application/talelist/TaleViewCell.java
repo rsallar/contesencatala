@@ -16,6 +16,7 @@ import com.google.inject.Inject;
 
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.resources.AppImagesSmall;
+import cat.contesencatala.client.resources.AppResources;
 
 public class TaleViewCell extends AbstractCell<Tale> {
 	
@@ -23,7 +24,7 @@ public class TaleViewCell extends AbstractCell<Tale> {
   
 	interface MyUiRenderer extends UiRenderer {
      void render(SafeHtmlBuilder sb, String title, SafeUri url,
-    		 String description, String iconClass);
+    		 String description, String iconClasses);
   }
   
 	private static MyUiRenderer renderer = GWT.create(MyUiRenderer.class);
@@ -31,11 +32,14 @@ public class TaleViewCell extends AbstractCell<Tale> {
   private AppImagesSmall res;
 
 private boolean favoriteMode;
+
+private AppResources appRes;
   
   @Inject
-  TaleViewCell(AppImagesSmall res){
+  TaleViewCell(AppImagesSmall res, AppResources appRes){
 	  super("click");
 	  this.res=res;
+	  this.appRes = appRes;
   }
 
   @Override
@@ -55,7 +59,7 @@ private boolean favoriteMode;
   }
 
 private String getIconClass(Tale value) {
-	String iconClass = "material-icons";
+	String iconClass = "material-icons "+appRes.style().favorite();
 	if(!value.favorite){
 		iconClass = iconClass + " hide";
 	}

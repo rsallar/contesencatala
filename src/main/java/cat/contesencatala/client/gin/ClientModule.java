@@ -28,6 +28,7 @@ import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.talelist.TaleViewCell;
 import cat.contesencatala.client.place.NameTokens;
 import cat.contesencatala.client.resources.ResourceLoader;
+import cat.contesencatala.client.services.AdMob;
 
 public class ClientModule extends AbstractPresenterModule {
 	Logger logger = Logger.getLogger("ClientModule");
@@ -51,9 +52,10 @@ public class ClientModule extends AbstractPresenterModule {
     	
     	
     	bind(ResourceLoader.class).asEagerSingleton();
-    	bind(TaleViewCell.class).asEagerSingleton();
-    	bind(Model.class).asEagerSingleton();
+        bind(TaleViewCell.class).asEagerSingleton();
+        bind(Model.class).asEagerSingleton();
     	bind(Persistance.class).asEagerSingleton();
+    	bind(AdMob.class).asEagerSingleton();
     	
        /* bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);*/
     }

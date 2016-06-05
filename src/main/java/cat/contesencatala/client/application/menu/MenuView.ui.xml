@@ -5,7 +5,7 @@
     
   
 	<m:MaterialHeader ui:field="header">
-		<m:MaterialNavBar ui:field="navBar" type="FIXED" backgroundColor="blue" activates="mysidenav">
+		<m:MaterialNavBar ui:field="navBar" type="FIXED" backgroundColor="teal lighten-1" activates="mysidenav">
 		    <m:MaterialLink ui:field="btnSearch" iconType="SEARCH" iconColor="white" float="RIGHT"/>
 			
 		</m:MaterialNavBar>
@@ -14,16 +14,15 @@
             <m:MaterialSearch ui:field="txtSearch" addStyleNames="{res.style.search}" placeholder="Cerca un conte..." iconColor="black"  active="true" shadow="1"/>
         </m:MaterialNavBar>
 
-		<m:MaterialSideNav ui:field="sideNav" m:id="mysidenav"  type="PUSH" width="300" closeOnClick="true">
-			<m:MaterialNavBrand>Contes en català</m:MaterialNavBrand>
-			<m:MaterialLink href="#home" iconType="HOME" 
-					iconPosition="LEFT" textColor="blue" text="Inici" />
+		<m:MaterialSideNav ui:field="sideNav" backgroundColor="teal lighten-5" m:id="mysidenav" allowBodyScroll = "true"  type="PUSH" width="300" closeOnClick="true">
+			<m:MaterialNavBrand textColor="teal lighten-1">Contes en català</m:MaterialNavBrand>
+			<m:MaterialLink href="#home" iconType="HOME" 	iconPosition="LEFT" textColor="teal lighten-1" text="Inici" />
 			<m:MaterialLink href="#talelist" iconType="BOOK" 
-				iconPosition="LEFT" textColor="blue" text="Contes" />
+				iconPosition="LEFT" textColor="teal lighten-1" text="Contes" />
 			<m:MaterialLink href="#talelist?favorite=true" 
-				iconType="STARS" iconPosition="LEFT" textColor="blue" text="Favorits" />
+				iconType="STARS" iconPosition="LEFT" textColor="teal lighten-1" text="Favorits" />
 			<m:MaterialLink href="#about" iconType="INFO_OUTLINE" 
-				iconPosition="LEFT" textColor="blue" text="Sobre l'aplicació" />
+				iconPosition="LEFT" textColor="teal lighten-1" text="Sobre l'aplicació" />
 
 		</m:MaterialSideNav>
 	</m:MaterialHeader>

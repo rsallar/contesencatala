@@ -14,8 +14,6 @@ import gwt.material.design.client.ui.MaterialContainer;
 
 public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> implements ApplicationPresenter.MyView {
     
-	/*@UiField
-	MaterialNavSection navBar;*/
 	
 	
 	interface Binder extends UiBinder<Widget, ApplicationView> {
@@ -50,31 +48,5 @@ public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> i
         }
     }*/
 
-	@Override
-	public void showTaleMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void hideTaleMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/*
-	@UiHandler("readBtn")
-	 void onClickReadBtn(ClickEvent e) {
-	
-		this.getUiHandlers().read();
-		
-	 }
-	
-	@UiHandler("favoriteBtn")
-	 void onClickFavBtn(ClickEvent e) {
-		this.getUiHandlers().favorite();
-		
-	 }*/
 
 }
