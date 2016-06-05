@@ -2,10 +2,11 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui">
     <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
+     <ui:with field='texts' type='cat.contesencatala.client.resources.i18n.AppMessages'/>
    <g:HTMLPanel addStyleNames="{res.style.about}">
-   <m:MaterialTitle title="Sobre l'aplicació" description="Gràcies per l'interés!"/>
+   <m:MaterialTitle title="Sobre l'aplicació" description="{texts.about}"/>
    
-   <m:MaterialTitle title="Crèdit per les imatges" description="Utilitzem imatges obertes de dibuixants de la web. En la següent llista us oferim el seu contacte."/>
+   <m:MaterialTitle title="Crèdit per les imatges" description="{texts.credits}"/>
     <m:MaterialCollection ui:field="collection">
  
    </m:MaterialCollection >

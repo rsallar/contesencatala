@@ -56,7 +56,7 @@ public class AdMob {
 		if($wnd.AdMob){
 			 $wnd.AdMob.prepareInterstitial({
 			    adId: admobid.interstitial,
-			    isTesting: true, // TODO: remove this line when release
+			    isTesting: false, // TODO: remove this line when release
 			    autoShow: false
 	 		});
 		}
@@ -65,12 +65,4 @@ public class AdMob {
 	}-*/;
 	
 	
-	public static JsArrayString toJsArray(String[] input) {
-		JsArrayString jsArrayString = JsArrayString.createArray().cast();
-		for (String s : input) {
-			jsArrayString.push(s);
-		}
-		return jsArrayString;
-	}
-
 }

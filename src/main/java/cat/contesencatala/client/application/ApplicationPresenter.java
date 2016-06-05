@@ -15,6 +15,7 @@ import com.gwtplatform.mvp.client.proxy.Proxy;
 
 import cat.contesencatala.client.application.menu.MenuPresenter;
 import cat.contesencatala.client.services.AdMob;
+import cat.contesencatala.client.services.Rate;
 
 public class ApplicationPresenter
         extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy>  implements ApplicationUiHandlers{
@@ -44,7 +45,7 @@ public class ApplicationPresenter
             MyProxy proxy,
             PlaceManager placeManager,
             MenuPresenter menuPresenter,
-            Persistance persistance, AdMob AdMob) {
+            Persistance persistance, AdMob AdMob, Rate rate) {
     	
         super(eventBus, view, proxy, RevealType.Root);
         this.AdMob = AdMob;
@@ -52,6 +53,7 @@ public class ApplicationPresenter
         getView().setUiHandlers(this);
         this.menuPresenter = menuPresenter;
         persistance.load();
+        rate.prepareRating();
         
     }
     
