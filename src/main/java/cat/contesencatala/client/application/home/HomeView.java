@@ -2,6 +2,7 @@ package cat.contesencatala.client.application.home;
 
 import javax.inject.Inject;
 
+import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -40,6 +41,7 @@ public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements Home
 	public void goTop() {
 		Window.scrollTo(0 ,0);		
 	}
+	
 	
 	
 }

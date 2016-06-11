@@ -1,7 +1,5 @@
 package cat.contesencatala.client.resources;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.i18n.client.Messages;
 import com.google.gwt.resources.client.ClientBundleWithLookup;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.resources.client.ImageResource;
@@ -33,6 +31,7 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
         String content();
         String search();
         String about();
+        String credits();
 		String favorite();
 		String homeButton();
         
@@ -88,10 +87,6 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
     @Source("texts/soldadetplom.txt")
     TextResource soldadetplom();
     
-    @Source("texts/applicationtexts.txt")
-    TextResource appTexts();
-    
-
-    
+  
   
 }

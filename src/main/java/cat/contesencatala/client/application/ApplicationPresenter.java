@@ -45,10 +45,9 @@ public class ApplicationPresenter
             MyProxy proxy,
             PlaceManager placeManager,
             MenuPresenter menuPresenter,
-            Persistance persistance, AdMob AdMob, Rate rate) {
+            Persistance persistance, Rate rate) {
     	
         super(eventBus, view, proxy, RevealType.Root);
-        this.AdMob = AdMob;
         this.placeManager = placeManager;
         getView().setUiHandlers(this);
         this.menuPresenter = menuPresenter;
@@ -60,7 +59,7 @@ public class ApplicationPresenter
     @Override
     protected void onBind() {  
     	setInSlot(SLOT_MENU, menuPresenter);
-    	AdMob.prepareAdds();
+
     	logger.info("ApplicationPresenter bind!");
     	
     }

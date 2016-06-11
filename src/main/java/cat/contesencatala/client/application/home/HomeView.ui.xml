@@ -16,12 +16,22 @@
 		    </m:MaterialCardImage>
 		    <m:MaterialCardContent textColor="black" addStyleNames="{res.style.content}">
 		     <m:MaterialLabel text="{texts.home}" />
+		    
+		    <g:HTMLPanel>
+			    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick"/>
+					<input type="hidden" name="hosted_button_id" value="SCN33ZCZBSAF4"/>
+					<input style="margin-top:15px;" type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
+					<img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1"/>
+					</form>
+		    </g:HTMLPanel>
 		    </m:MaterialCardContent>
 		    <m:MaterialCardAction backgroundColor="teal lighten-4" >
 		     <m:MaterialButton ui:field="tales" text="{texts.start}" addStyleNames="{res.style.homeButton}" />
 		     <!-- <m:MaterialButton text="Eliminar publicitat" addStyleNames="{res.style.homeButton}" /> -->
 		    </m:MaterialCardAction>
 		   </m:MaterialCard>
+		   
 		  </m:MaterialColumn>
         </m:MaterialRow>
     </g:HTMLPanel>

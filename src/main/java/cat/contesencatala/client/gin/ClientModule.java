@@ -57,7 +57,7 @@ public class ClientModule extends AbstractPresenterModule {
         bind(TaleViewCell.class).asEagerSingleton();
         bind(Model.class).asEagerSingleton();
     	bind(Persistance.class).asEagerSingleton();
-    	bind(AdMob.class).asEagerSingleton();
+    	//bind(AdMob.class).asEagerSingleton();
     	bind(Rate.class).asEagerSingleton();
     	
        /* bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);*/

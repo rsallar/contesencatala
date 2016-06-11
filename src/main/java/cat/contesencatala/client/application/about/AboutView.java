@@ -32,8 +32,11 @@ class AboutView extends ViewImpl implements AboutPresenter.MyView {
 	@Override
 	public void addCredit(String title, String photoCreditUrl) {
 		MaterialCollectionItem item = new MaterialCollectionItem();
-		item.setBackgroundColor("teal lighten-5");
-		MaterialLabel label = new MaterialLabel(title); label.setFontSize("1.2em");;
+		//item.setBackgroundColor("teal lighten-5");
+		MaterialLabel label = new MaterialLabel(title); 
+		
+		//label.setFontSize("0.8em");
+		//label.setMarginTop(0);
         MaterialLink link = new MaterialLink(photoCreditUrl);
         
        	link.addClickHandler(handler);

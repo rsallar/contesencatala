@@ -1,4 +1,11 @@
-@external card-content side-nav active;
+@external card-content side-nav active ;
+
+
+#mysidenav li{
+   display: inline-block !important;
+   width: 100%;
+}
+
 .main{
    padding-top: 75px !important; 
 }
@@ -19,6 +26,11 @@ html{
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 15px;
+}
+
+.credits {
+
+
 }
 
 .search input{
