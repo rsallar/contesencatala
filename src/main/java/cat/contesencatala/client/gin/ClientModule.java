@@ -29,7 +29,7 @@ import cat.contesencatala.client.application.talelist.TaleViewCell;
 import cat.contesencatala.client.place.NameTokens;
 import cat.contesencatala.client.resources.ResourceLoader;
 import cat.contesencatala.client.resources.i18n.AppMessages;
-import cat.contesencatala.client.services.AdMob;
+import cat.contesencatala.client.services.BackButton;
 import cat.contesencatala.client.services.Rate;
 
 public class ClientModule extends AbstractPresenterModule {
@@ -59,6 +59,7 @@ public class ClientModule extends AbstractPresenterModule {
     	bind(Persistance.class).asEagerSingleton();
     	//bind(AdMob.class).asEagerSingleton();
     	bind(Rate.class).asEagerSingleton();
+    	bind(BackButton.class).asEagerSingleton();
     	
        /* bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);*/
     }

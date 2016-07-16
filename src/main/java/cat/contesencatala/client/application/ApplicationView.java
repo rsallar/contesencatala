@@ -26,8 +26,7 @@ public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> i
     HTMLPanel menu;
        
     @Inject
-    ApplicationView(
-            Binder uiBinder) {
+    ApplicationView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
        
         bindSlot(ApplicationPresenter.SLOT_MENU,  menu);
@@ -37,16 +36,4 @@ public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> i
         
        
     }
-    
-    /*@Override
-    public void addToSlot(Object slot, IsWidget content) {
-        if (slot == ApplicationPresenter.SLOT_MENU) {
-           main.add(content);
-        } else{
-        	 main.add(content);
-            //super.addToSlot(slot, content);
-        }
-    }*/
-
-
 }

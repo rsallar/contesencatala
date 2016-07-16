@@ -54,6 +54,7 @@ class MenuView extends ViewWithUiHandlers<MenuUiHandlers> implements MenuPresent
     
     @UiHandler("btnSearch")
     void onSearch(ClickEvent e){
+    	txtSearch.clear();
         navBarSearch.setVisible(true);
         navBar.setVisible(false);
 
