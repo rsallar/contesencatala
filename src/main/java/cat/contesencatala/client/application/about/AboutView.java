@@ -32,8 +32,11 @@ class AboutView extends ViewImpl implements AboutPresenter.MyView {
 	@Override
 	public void addCredit(String title, String photoCreditUrl) {
 		MaterialCollectionItem item = new MaterialCollectionItem();
-		//tem.setType(CollectionType.AVATAR);
-		MaterialLabel label = new MaterialLabel(title); label.setFontSize("1.2em");;
+		//item.setBackgroundColor("teal lighten-5");
+		MaterialLabel label = new MaterialLabel(title); 
+		
+		//label.setFontSize("0.8em");
+		//label.setMarginTop(0);
         MaterialLink link = new MaterialLink(photoCreditUrl);
         
        	link.addClickHandler(handler);
@@ -45,16 +48,23 @@ class AboutView extends ViewImpl implements AboutPresenter.MyView {
 
 	}
 	
+	@Override
+	public void goTop() {
+		Window.scrollTo(0 ,0);		
+	}
+    
+	
 	ClickHandler handler = new ClickHandler() {
 		
 		@Override
 		public void onClick(ClickEvent event) {
 			MaterialLink element = (MaterialLink)event.getSource();
-			//Window.alert(""+element.getInnerText());
 			Window.open(element.getText(), "_blank", null);
 			
 		}
 	};
+	
+	
     
    
 }

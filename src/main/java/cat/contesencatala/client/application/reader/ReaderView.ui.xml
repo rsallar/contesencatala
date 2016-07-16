@@ -6,9 +6,9 @@
   <ui:with field='res' type='cat.contesencatala.client.resources.AppResources'/>
   
   <m:MaterialRow ui:field="container">
-  <m:MaterialColumn  grid="s12" addStyleNames="{res.style.readerContainer}">
+  <m:MaterialColumn  grid="s12" >
 
-		<m:MaterialCard hoverable="false" backgroundColor="white">
+		<m:MaterialCard hoverable="false" backgroundColor="white" addStyleNames="{res.style.readerCard}">
 	
 			<m:MaterialCardImage waves="LIGHT" >
 				
@@ -22,11 +22,14 @@
 				<m:MaterialLabel ui:field="text"/>
 				
 			</m:MaterialCardContent>
-
+ 		<m:MaterialCardAction backgroundColor="teal lighten-4" >
+		      <m:MaterialButton  ui:field="back"  text="Tornar" backgroundColor="teal lighten-1" textColor="white" />
+		    </m:MaterialCardAction>
 		</m:MaterialCard>
+		
+		
 
-		<m:MaterialButton ui:field="back" text="Tornar"
-			backgroundColor="blue" textColor="white" />
+		
 	  
   </m:MaterialColumn>
 

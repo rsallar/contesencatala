@@ -13,50 +13,50 @@ import com.gwtplatform.mvp.client.presenter.slots.PermanentSlot;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 
-import cat.contesencatala.client.application.events.TaleSelectedEvent;
-import cat.contesencatala.client.application.events.TaleSelectedEvent.TaleSelectedHandler;
 import cat.contesencatala.client.application.menu.MenuPresenter;
-import cat.contesencatala.client.application.model.Model;
-import cat.contesencatala.client.place.NameTokens;
+import cat.contesencatala.client.services.AdMob;
+import cat.contesencatala.client.services.BackButton;
+import cat.contesencatala.client.services.Rate;
 
 public class ApplicationPresenter
-        extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy>  implements TaleSelectedHandler, ApplicationUiHandlers{
+        extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.AppProxy>  implements ApplicationUiHandlers{
 	
 	Logger logger = Logger.getLogger(ApplicationPresenter.class.getName());
-	private PlaceManager placeManager;
-
+	
 	private MenuPresenter menuPresenter;
 	
     interface MyView extends View, HasUiHandlers<ApplicationUiHandlers> {
 
-		void showTaleMenu();
-
-		void hideTaleMenu();
     }
 
     @ProxyStandard
-    interface MyProxy extends Proxy<ApplicationPresenter> {
+    interface AppProxy extends Proxy<ApplicationPresenter> {
     }
 
     
     public static final NestedSlot SLOT_MAIN = new NestedSlot();
     public static final PermanentSlot<MenuPresenter> SLOT_MENU = new PermanentSlot<>();
 
+    BackButton backButton;
+    Persistance persistance; 
+    Rate rate;
+    
     @Inject
     ApplicationPresenter(
             EventBus eventBus,
             MyView view,
-            MyProxy proxy,
-            PlaceManager placeManager,
+            AppProxy proxy,
             MenuPresenter menuPresenter,
-            Persistance persistance) {
+           
+            Persistance persistance, Rate rate) {
     	
         super(eventBus, view, proxy, RevealType.Root);
-        this.placeManager = placeManager;
         getView().setUiHandlers(this);
-        addRegisteredHandler(TaleSelectedEvent.getType(), this);
         this.menuPresenter = menuPresenter;
-        persistance.load();
+        
+        this.rate = rate;
+        this.persistance = persistance;
+        this.backButton = backButton;
         
     }
     
@@ -66,26 +66,10 @@ public class ApplicationPresenter
 
     	logger.info("ApplicationPresenter bind!");
     	
+    	persistance.load();
+        rate.prepareRating();
+        backButton.init();
+    	
     }
-    
-    void registerTowardsHistory() {
-	   // placeManager.getEventBus().
-	  }
-    
-    @Override
-    protected void onReveal() {  
- 
-    }
-    @Override
-    protected void onReset(){
-    	getView().hideTaleMenu();
-    }
-
-	@Override
-	public void onTaleSelected(TaleSelectedEvent event) {
-		logger.fine("tale selected");
-		getView().showTaleMenu();
-		
-	}
-
+   
 }

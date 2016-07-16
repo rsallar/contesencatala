@@ -8,7 +8,7 @@
 	<ui:with field='url' type='com.google.gwt.safehtml.shared.SafeUri' />
 	<ui:with field='title' type='java.lang.String' />
 	<ui:with field='description' type='java.lang.String' />
-	<ui:with field='iconClass' type='java.lang.String' />
+	<ui:with field='iconClasses' type='java.lang.String' />
 
 	<div class="card white">
 		<div class="card-image">
@@ -17,7 +17,7 @@
 				<span>
 					<ui:text from='{title}'/> 
 					<!-- <i class="material-icons" class="{iconStyle}">favorite</i>-->
-					<i class="{iconClass}">favorite</i>
+					<i class="{iconClasses}">favorite</i>
 				</span>
 			</span>
 		</div>

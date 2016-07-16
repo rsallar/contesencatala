@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.resources.client.ImageResource;
@@ -18,7 +19,7 @@ import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.resources.AppImagesSmall;
 import cat.contesencatala.client.resources.AppResources;
-import gwt.material.design.addins.client.overlay.MaterialOverlay;
+import cat.contesencatala.client.services.AdMob;
 import gwt.material.design.client.constants.FlexAlignSelf;
 import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.ui.MaterialCardTitle;
@@ -51,7 +52,7 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
     	this.resources = resources;
         initWidget(uiBinder.createAndBindUi(this));
         image.setFlexAlignSelf(FlexAlignSelf.CENTER);
-       
+        title.setIconColor("red accent-2");
         title.getIcon().addClickHandler(new ClickHandler() {
 			
 			@Override
@@ -59,7 +60,7 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 				 getUiHandlers().favoriteClick();
 			}
 		});
-      
+        image.getParent().getElement().getStyle().setDisplay(Display.BLOCK);
 
     }
     
@@ -81,12 +82,9 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 		TextResource textRes = (TextResource) resources.getResource(tale.id);	
 		ImageResource imageRes = (ImageResource) bundle.getResource(tale.id+"_img");
 		
-		String url = imageRes.getSafeUri().asString();
-		logger.fine("loading image from: "+url);
-		image.setUrl(url);
-		image.setWidth(container.getOffsetWidth()+"px");
-		//image.setHeight(imageRes.getHeight()+"px");
-		//image.setWidth(imageRes.getWidth()+"px");
+		image.setUrl(imageRes.getSafeUri().asString());
+		
+		//image.setWidth(container.getOffsetWidth()+"px");
 		text.setText(textRes.getText());
 		title.setText(tale.title);
 				
@@ -95,13 +93,12 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 	@Override
 	public void unfavorite() {
 		title.setIconType(IconType.FAVORITE_BORDER);
-		
+
 	}
 
 	@Override
 	public void favorite() {
 		title.setIconType(IconType.FAVORITE);
-		
-		
+
 	}
 }

@@ -14,8 +14,6 @@ import gwt.material.design.client.ui.MaterialContainer;
 
 public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> implements ApplicationPresenter.MyView {
     
-	/*@UiField
-	MaterialNavSection navBar;*/
 	
 	
 	interface Binder extends UiBinder<Widget, ApplicationView> {
@@ -28,8 +26,7 @@ public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> i
     HTMLPanel menu;
        
     @Inject
-    ApplicationView(
-            Binder uiBinder) {
+    ApplicationView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
        
         bindSlot(ApplicationPresenter.SLOT_MENU,  menu);
@@ -39,42 +36,4 @@ public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> i
         
        
     }
-    
-    /*@Override
-    public void addToSlot(Object slot, IsWidget content) {
-        if (slot == ApplicationPresenter.SLOT_MENU) {
-           main.add(content);
-        } else{
-        	 main.add(content);
-            //super.addToSlot(slot, content);
-        }
-    }*/
-
-	@Override
-	public void showTaleMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void hideTaleMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/*
-	@UiHandler("readBtn")
-	 void onClickReadBtn(ClickEvent e) {
-	
-		this.getUiHandlers().read();
-		
-	 }
-	
-	@UiHandler("favoriteBtn")
-	 void onClickFavBtn(ClickEvent e) {
-		this.getUiHandlers().favorite();
-		
-	 }*/
-
 }

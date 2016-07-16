@@ -2,8 +2,9 @@ package cat.contesencatala.client.resources;
 
 import com.google.gwt.resources.client.ClientBundleWithLookup;
 import com.google.gwt.resources.client.CssResource;
-import com.google.gwt.resources.client.CssResource.NotStrict;
 import com.google.gwt.resources.client.ImageResource;
+import com.google.gwt.resources.client.ImageResource.ImageOptions;
+import com.google.gwt.resources.client.ImageResource.RepeatStyle;
 import com.google.gwt.resources.client.TextResource;
 import com.google.gwt.user.cellview.client.CellList;
 
@@ -13,6 +14,8 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
 		
 		 
     }
+	
+	
 
     interface Style extends CssResource{
     	String closeIcon();
@@ -22,59 +25,68 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
         String taleButton();
         String floatLeft();
         String floatRight();
-        String readerContainer();
+        String readerCard();
         String main();
         String cardTitle();
         String content();
         String search();
         String about();
+        String credits();
+		String favorite();
+		String homeButton();
+        
     }	
    
     @Source("css/style.gss")
     Style style();
-   
-    @NotStrict
+    
+        
+    
+    /**APP IMAGES*/
+    @Source("appimg/background.png")
+	@ImageOptions(repeatStyle=RepeatStyle.Both)
+	ImageResource background();
+    /*@NotStrict
     @Source("css/myoverride.gss")
-    MyOverride override();
+    MyOverride override();*/
     
     /**TALES**/
     
-    @Source("tales/aneguetlleig.txt")
+    @Source("texts/aneguetlleig.txt")
     TextResource  aneguetlleig();
     
-    @Source("tales/caputxeta.txt" )
+    @Source("texts/caputxeta.txt" )
     TextResource  caputxeta();
     
     
     
-    @Source("tales/flautista.txt")
+    @Source("texts/flautista.txt")
     TextResource  flautista();
     
-    @Source("tales/gatbotes.txt")
+    @Source("texts/gatbotes.txt")
     TextResource  gatbotes();
     
-    @Source("tales/musics.txt")
+    @Source("texts/musics.txt")
     TextResource  musics();
     
-    @Source("tales/patufet.txt")
+    @Source("texts/patufet.txt")
     TextResource  patufet();
     
-    @Source("tales/princepfelic.txt")
+    @Source("texts/princepfelic.txt")
     TextResource  princepfelic();
     
-    @Source("tales/princesapesol.txt")
+    @Source("texts/princesapesol.txt")
     TextResource  princesapesol();
     
-    @Source("tales/rapunzel.txt")
+    @Source("texts/rapunzel.txt")
     TextResource rapunzel();
     
-    @Source("tales/reinaabelles.txt")
+    @Source("texts/reinaabelles.txt")
     TextResource reinaabelles();
     
-    @Source("tales/soldadetplom.txt")
+    @Source("texts/soldadetplom.txt")
     TextResource soldadetplom();
     
-
-    
+  
   
 }

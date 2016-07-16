@@ -14,10 +14,12 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.application.Persistance;
+import cat.contesencatala.client.application.menu.MenuPresenter;
 import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
+import cat.contesencatala.client.services.AdMob;
 public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPresenter.MyProxy> implements ReaderUiHandlers {
     interface MyView extends View,HasUiHandlers<ReaderUiHandlers> {
 
@@ -33,6 +35,8 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
     PlaceManager placeManager;
 	private Model model;
 	private Persistance persistance;
+	private MenuPresenter menu;
+	private AdMob AdMob;
     @NameToken(NameTokens.reader)
     @ProxyStandard
     interface MyProxy extends ProxyPlace<ReaderPresenter> {
@@ -43,12 +47,14 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
             EventBus eventBus,
             MyView view, 
             MyProxy proxy,
-            PlaceManager placeManager, Model model, Persistance persistance) {
+            PlaceManager placeManager, Model model, Persistance persistance, MenuPresenter menu, AdMob AdMob) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
         this.placeManager = placeManager;
+        this.AdMob = AdMob;
         getView().setUiHandlers(this);
         this.model = model;
         this.persistance = persistance;
+        this.menu = menu;
     }
     
     @Override
@@ -68,15 +74,7 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 	
 	@Override
 	public void onReveal() {
-		String taleId = placeManager.getCurrentPlaceRequest().getParameter(NameParams.taleId, null);
-		model.selectedTale = model.getTaleById(taleId);
-		getView().setParams(model.selectedTale);
-		if(model.selectedTale.favorite){
-			getView().favorite();	
-		}else{
-			getView().unfavorite();
-		}
-		getView().goTop();
+		
 		
 	}
 
@@ -91,5 +89,20 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 		persistance.save(model.selectedTale);
 	}
 	
+	@Override
+	public void onReset(){
+		AdMob.showAdd();
+		
+		String taleId = placeManager.getCurrentPlaceRequest().getParameter(NameParams.taleId, null);
+		model.selectedTale = model.getTaleById(taleId);
+		getView().setParams(model.selectedTale);
+		if(model.selectedTale.favorite){
+			getView().favorite();	
+		}else{
+			getView().unfavorite();
+		}
+		getView().goTop();
+		
+	}
 	
 }

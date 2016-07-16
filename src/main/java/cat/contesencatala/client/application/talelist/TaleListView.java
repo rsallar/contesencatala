@@ -6,6 +6,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.CellList;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.HasData;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
@@ -58,6 +59,11 @@ class TaleListView extends ViewWithUiHandlers<TaleListUiHandlers> implements Tal
 	public void redraw() {
 		cellList.redraw();
 		
+	}
+	
+	@Override
+	public void goTop() {
+		Window.scrollTo(0 ,0);		
 	}
     
     

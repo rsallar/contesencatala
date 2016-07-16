@@ -2,6 +2,7 @@ package cat.contesencatala.client.application.menu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -22,6 +23,8 @@ public class MenuPresenter extends PresenterWidget<MenuPresenter.MyView> impleme
 		void addListSearches(List<SearchObject> listSearches);
 
     }
+    
+    Logger logger = Logger.getLogger(MenuPresenter.class.getName());
     private List<SearchObject> listSearches = new ArrayList<>();
 	private Model model;
     @Inject
@@ -38,7 +41,7 @@ public class MenuPresenter extends PresenterWidget<MenuPresenter.MyView> impleme
     
     @Override
     public void onBind(){
-     	
+    	logger.fine("bind");
     	for(Tale tale: model.tales){
     		String token = "#"+NameTokens.reader+"?taleId="+tale.id;
 
@@ -53,7 +56,13 @@ public class MenuPresenter extends PresenterWidget<MenuPresenter.MyView> impleme
     	getView().addListSearches(listSearches);
     	  
     }
-
+    
+    @Override
+    public void onReset(){
+    	
+    	
+    	
+    }
 	   
     
 }

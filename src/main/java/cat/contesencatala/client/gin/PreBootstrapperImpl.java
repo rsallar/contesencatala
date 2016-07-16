@@ -1,5 +1,6 @@
 package cat.contesencatala.client.gin;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.google.gwt.core.client.GWT;
@@ -18,7 +19,7 @@ public class PreBootstrapperImpl implements PreBootstrapper {
             public void onUncaughtException(final Throwable e) {
             	logger.fine("severe error");
             	Throwable unwrapped = unwrap(e);
-            	GWT.log(unwrapped.getMessage(), unwrapped);
+            	logger.log(Level.FINE, unwrapped.getMessage(), unwrapped);
             	 
             }
         });
