@@ -8,7 +8,6 @@
 	<!-- GWTP -->
 	<inherits name="com.gwtplatform.mvp.MvpWithEntryPoint" />
 	<extend-configuration-property name="gin.ginjector.modules" value="cat.contesencatala.client.gin.ClientModule" />
-    <inherits name="com.gwtplatform.dispatch.rest.DispatchRest"/>
     
     <!-- MATERIAL -->
 	<inherits name="gwt.material.design.GwtMaterialWithJQuery" />

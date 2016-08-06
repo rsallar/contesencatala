@@ -22,7 +22,6 @@ public class ApplicationModule extends AbstractPresenterModule {
 		install(new LoginModule());
 		install(new HomeModule());
 	
-        bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class,
-                ApplicationPresenter.AppProxy.class);
+        bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class,ApplicationPresenter.AppProxy.class);
     }
 }

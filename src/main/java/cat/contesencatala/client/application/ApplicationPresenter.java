@@ -2,6 +2,7 @@ package cat.contesencatala.client.application;
 
 import java.util.logging.Logger;
 
+
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.HasUiHandlers;
@@ -10,12 +11,9 @@ import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
 import com.gwtplatform.mvp.client.presenter.slots.PermanentSlot;
-import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 
 import cat.contesencatala.client.application.menu.MenuPresenter;
-import cat.contesencatala.client.services.AdMob;
-import cat.contesencatala.client.services.BackButton;
 import cat.contesencatala.client.services.Rate;
 
 public class ApplicationPresenter
@@ -37,7 +35,7 @@ public class ApplicationPresenter
     public static final NestedSlot SLOT_MAIN = new NestedSlot();
     public static final PermanentSlot<MenuPresenter> SLOT_MENU = new PermanentSlot<>();
 
-    BackButton backButton;
+    //BackButton backButton;
     Persistance persistance; 
     Rate rate;
     
@@ -47,7 +45,6 @@ public class ApplicationPresenter
             MyView view,
             AppProxy proxy,
             MenuPresenter menuPresenter,
-           
             Persistance persistance, Rate rate) {
     	
         super(eventBus, view, proxy, RevealType.Root);
@@ -56,7 +53,7 @@ public class ApplicationPresenter
         
         this.rate = rate;
         this.persistance = persistance;
-        this.backButton = backButton;
+       // this.backButton = backButton;
         
     }
     
@@ -68,7 +65,7 @@ public class ApplicationPresenter
     	
     	persistance.load();
         rate.prepareRating();
-        backButton.init();
+        	//backButton.init();
     	
     }
    

@@ -12,15 +12,15 @@
 
 
 	<properties>
-		<gwtVersion>2.8.0-SNAPSHOT</gwtVersion>
-		<gwtPluginVersion>2.8.0-SNAPSHOT</gwtPluginVersion>
+		<gwtVersion>2.7.0</gwtVersion>
+		<gwtPluginVersion>2.7.0</gwtPluginVersion>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
-		<target.jdk>1.8</target.jdk>
+		<target.jdk>1.7</target.jdk>
 		<gwtp.version>1.5.3</gwtp.version>
-		<gwt.material>1.6.0-SNAPSHOT</gwt.material>
-		<gwt.material.addin>1.6.0-SNAPSHOT</gwt.material.addin>
+		<gwt.material>1.5.3</gwt.material>
+		<gwt.material.addin>1.5.2</gwt.material.addin>
 	</properties>
 
 
@@ -220,83 +220,13 @@
 			<artifactId>aopalliance</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<!-- <dependency> <groupId>com.google.gwt.inject</groupId> <artifactId>gin</artifactId> 
-			<version>2.1.2</version> </dependency> -->
-
 		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<!-- if your container implements Servlet API older than 3.0, use "jersey-container-servlet-core" -->
-			<artifactId>jersey-container-servlet-core</artifactId>
-			<version>2.11</version>
+			<groupId>com.google.gwt.inject</groupId>
+			<artifactId>gin</artifactId>
+			<version>2.1.2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> 
-			<version>1.7.6</version> </dependency> <dependency> <groupId>org.slf4j</groupId> 
-			<artifactId>slf4j-log4j12</artifactId> <version>1.7.6</version> </dependency> -->
-
 	</dependencies>
 
-	<repositories>
-		<repository>
-			<id>sonatype.snapshots</id>
-			<name>Sonatype snapshot repository</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>google.snapshots</id>
-			<name>google snapshot repository</name>
-			<url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>codehaus</id>
-			<url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-
-			<id>sonatype.snapshots</id>
-			<name>Sonatype snapshot repository</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>google.snapshots</id>
-			<name>google snapshot repository</name>
-			<url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>codehaus</id>
-			<url>https://nexus.codehaus.org/content/repositories/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
-
+	
 	<artifactId>contesencatala</artifactId>
 </project>
