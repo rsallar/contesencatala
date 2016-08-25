@@ -52,9 +52,9 @@
 					<execution>
 						<goals>
 							<goal>resources</goal>
-							<goal>i18n</goal>
 							<goal>compile</goal>
-							<goal>generateAsync</goal>
+							<!-- <goal>i18n</goal>-->
+							<!-- <goal>generateAsync</goal>-->
 							<!-- <goal>test</goal> -->
 
 						</goals>
@@ -68,9 +68,10 @@
 					<copyWebapp>true</copyWebapp>
 					<runTarget>index.html</runTarget>
 					<hostedWebapp>${webappDirectory}</hostedWebapp>
-					<i18nMessagesBundle>cat.contesencatala.client.Messages</i18nMessagesBundle>
+					<!-- <i18nMessagesBundle>cat.contesencatala.client.Messages</i18nMessagesBundle> -->
 					<sourceLevel>${target.jdk}</sourceLevel>
-					<!-- <generateJsInteropExports></generateJsInteropExports> -->
+					<compileReport>true</compileReport>
+					<style>OBFUSCATED</style>
 					<modules>
 						<module>cat.contesencatala.contesencatala</module>
 					</modules>
