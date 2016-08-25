@@ -14,7 +14,6 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.application.Persistance;
-import cat.contesencatala.client.application.menu.MenuPresenter;
 import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
@@ -35,7 +34,6 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
     PlaceManager placeManager;
 	private Model model;
 	private Persistance persistance;
-	private MenuPresenter menu;
 	private AdMob AdMob;
     @NameToken(NameTokens.reader)
     @ProxyStandard
@@ -47,14 +45,13 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
             EventBus eventBus,
             MyView view, 
             MyProxy proxy,
-            PlaceManager placeManager, Model model, Persistance persistance, MenuPresenter menu, AdMob AdMob) {
+            PlaceManager placeManager, Model model, Persistance persistance, AdMob AdMob) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
         this.placeManager = placeManager;
         this.AdMob = AdMob;
         getView().setUiHandlers(this);
         this.model = model;
         this.persistance = persistance;
-        this.menu = menu;
     }
     
     @Override

@@ -2,7 +2,6 @@ package cat.contesencatala.client.application.talelist;
 
 import java.util.logging.Logger;
 
-import com.google.gwt.user.client.Window;
 import com.google.gwt.view.client.HasData;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.inject.Inject;

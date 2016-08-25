@@ -12,15 +12,15 @@
 
 
 	<properties>
-		<gwtVersion>2.7.0</gwtVersion>
-		<gwtPluginVersion>2.7.0</gwtPluginVersion>
+		<gwtVersion>2.8.0-rc2</gwtVersion>
+		<gwtPluginVersion>2.8.0-rc1</gwtPluginVersion>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
-		<target.jdk>1.7</target.jdk>
+		<target.jdk>1.8</target.jdk>
 		<gwtp.version>1.5.3</gwtp.version>
-		<gwt.material>1.5.3</gwt.material>
-		<gwt.material.addin>1.5.2</gwt.material.addin>
+		<gwt.material>2.0-SNAPSHOT</gwt.material>
+		<gwt.material.addin>2.0-SNAPSHOT</gwt.material.addin>
 	</properties>
 
 
@@ -69,11 +69,32 @@
 					<runTarget>index.html</runTarget>
 					<hostedWebapp>${webappDirectory}</hostedWebapp>
 					<i18nMessagesBundle>cat.contesencatala.client.Messages</i18nMessagesBundle>
+					<sourceLevel>${target.jdk}</sourceLevel>
 					<!-- <generateJsInteropExports></generateJsInteropExports> -->
 					<modules>
 						<module>cat.contesencatala.contesencatala</module>
 					</modules>
 				</configuration>
+
+				<!-- Needed to set GWT SDK in eclipse! -->
+				<dependencies>
+					<dependency>
+						<groupId>com.google.gwt</groupId>
+						<artifactId>gwt-user</artifactId>
+						<version>${gwtVersion}</version>
+					</dependency>
+					<dependency>
+						<groupId>com.google.gwt</groupId>
+						<artifactId>gwt-dev</artifactId>
+						<version>${gwtVersion}</version>
+					</dependency>
+					<dependency>
+						<groupId>com.google.gwt</groupId>
+						<artifactId>gwt-codeserver</artifactId>
+						<version>${gwtVersion}</version>
+						
+					</dependency>
+				</dependencies>
 			</plugin>
 
 			<!-- Copy static web files before executing gwt:run -->
@@ -143,12 +164,7 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>com.google.gwt</groupId>
-			<artifactId>gwt-servlet</artifactId>
-			<version>${gwtVersion}</version>
-			<scope>runtime</scope>
-		</dependency>
+
 		<dependency>
 			<groupId>com.github.gwtmaterialdesign</groupId>
 			<artifactId>gwt-material</artifactId>
@@ -169,22 +185,22 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-dev</artifactId>
+			<version>${gwtVersion}</version>
+			 <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-codeserver</artifactId>
+			<version>${gwtVersion}</version>
+			 <scope>provided</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-			<classifier>sources</classifier>
 			<scope>test</scope>
 		</dependency>
 
@@ -225,8 +241,14 @@
 			<artifactId>gin</artifactId>
 			<version>2.1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.nmorel.gwtjackson</groupId>
+			<artifactId>gwt-jackson</artifactId>
+			<version>0.13.0</version>
+		</dependency>
+		
 	</dependencies>
 
-	
+
 	<artifactId>contesencatala</artifactId>
 </project>

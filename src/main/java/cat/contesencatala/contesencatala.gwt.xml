@@ -3,7 +3,7 @@
   	<!-- Inherit the core Web Toolkit stuff. -->
 	<inherits name='com.google.gwt.user.User' />
 	<inherits name="com.google.gwt.i18n.I18N"/>
-	
+	<inherits name="com.google.gwt.logging.Logging"/>
    
 	<!-- GWTP -->
 	<inherits name="com.gwtplatform.mvp.MvpWithEntryPoint" />
@@ -13,17 +13,19 @@
 	<inherits name="gwt.material.design.GwtMaterialWithJQuery" />
 	<inherits name="gwt.material.design.addins.GwtMaterialAddins"/>
 	
-	<!-- Logging  --> 
-	<inherits name="com.google.gwt.logging.Logging"/>
+	<!-- Logging    --> 
 	<set-property name="gwt.logging.enabled" value="TRUE"/>
     <set-property name="gwt.logging.consoleHandler" value="ENABLED"/>
     <set-property name="gwt.logging.logLevel" value="FINE"/>
     
-    <set-configuration-property name="verifyNewerVersion" value="true"/>
-    
+  	    
+    <set-configuration-property name="CssResource.enableGss" value="true" />
+	<set-configuration-property name="CssResource.legacy" value="true" />
+	
+    <set-configuration-property name="verifyNewerVersion" value="false"/>
     <set-configuration-property name="gwtp.prebootstrapper" value="cat.contesencatala.client.gin.PreBootstrapperImpl"/>
 
-	<set-configuration-property name="CssResource.enableGss" value="true" />
+	<set-configuration-property name="gin.classloading.exceptedPackages" value="com.google.gwt.core.client"/>
 
 	<!-- <set-property name="compiler.stackMode" value="native">
 	  <when-property-is name="superdevmode" value="on" />

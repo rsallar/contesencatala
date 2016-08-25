@@ -6,12 +6,10 @@ import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
-import com.gwtplatform.mvp.client.Presenter.RevealType;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
-import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.place.NameTokens;
 public class LoginPresenter extends Presenter<LoginPresenter.MyView, LoginPresenter.MyProxy>  {
     interface MyView extends View  {

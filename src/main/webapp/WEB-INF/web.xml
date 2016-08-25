@@ -5,21 +5,6 @@
 
 <web-app>
 
-  <!-- Servlets 
-	<servlet>
-      <servlet-name>Servlet</servlet-name>
-      <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-	    <init-param>
-	      <param-name>javax.ws.rs.Application</param-name>
-	      <param-value>com.gwtskeleton.server.MyApplication</param-value>
-	    </init-param>
-	</servlet>    
-    
-    <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/data/*</url-pattern>
-    </servlet-mapping>-->
-
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>test.html</welcome-file>

@@ -34,7 +34,6 @@ import cat.contesencatala.client.services.Rate;
 public class ClientModule extends AbstractPresenterModule {
 	Logger logger = Logger.getLogger("ClientModule");
 	
-    private static final String ANALYTICS_ACCOUNT = "UA-8319339-6";
 
     @Override
     protected void configure() {
@@ -59,7 +58,7 @@ public class ClientModule extends AbstractPresenterModule {
     	//bind(AdMob.class).asEagerSingleton();
     	bind(Rate.class).asEagerSingleton();
     //	bind(BackButton.class).asEagerSingleton();
-    	
+ 
        /* bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);*/
     }
 }

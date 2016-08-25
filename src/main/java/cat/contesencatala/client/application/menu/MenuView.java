@@ -15,8 +15,6 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import gwt.material.design.client.base.SearchObject;
-import gwt.material.design.client.events.SearchFinishEvent;
-import gwt.material.design.client.events.SearchFinishEvent.SearchFinishHandler;
 import gwt.material.design.client.ui.MaterialNavBar;
 import gwt.material.design.client.ui.MaterialSearch;
 import gwt.material.design.client.ui.MaterialSideNav;

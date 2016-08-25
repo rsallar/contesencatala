@@ -19,7 +19,6 @@ import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.resources.AppImagesSmall;
 import cat.contesencatala.client.resources.AppResources;
-import cat.contesencatala.client.services.AdMob;
 import gwt.material.design.client.constants.FlexAlignSelf;
 import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.ui.MaterialCardTitle;
