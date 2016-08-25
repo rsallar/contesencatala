@@ -19,8 +19,8 @@
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<target.jdk>1.8</target.jdk>
 		<gwtp.version>1.5.3</gwtp.version>
-		<gwt.material>2.0-SNAPSHOT</gwt.material>
-		<gwt.material.addin>2.0-SNAPSHOT</gwt.material.addin>
+		<gwt.material>1.6.0</gwt.material>
+		<gwt.material.addin>1.6.0</gwt.material.addin>
 	</properties>
 
 
@@ -163,7 +163,6 @@
 	</build>
 
 	<dependencies>
-
 
 		<dependency>
 			<groupId>com.github.gwtmaterialdesign</groupId>
