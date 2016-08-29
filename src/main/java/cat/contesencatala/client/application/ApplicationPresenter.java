@@ -2,7 +2,6 @@ package cat.contesencatala.client.application;
 
 import java.util.logging.Logger;
 
-
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.HasUiHandlers;
@@ -13,8 +12,9 @@ import com.gwtplatform.mvp.client.presenter.slots.NestedSlot;
 import com.gwtplatform.mvp.client.presenter.slots.PermanentSlot;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 
+import cat.contesencatala.client.application.jsservices.AdMob;
+import cat.contesencatala.client.application.jsservices.Rate;
 import cat.contesencatala.client.application.menu.MenuPresenter;
-import cat.contesencatala.client.services.Rate;
 
 public class ApplicationPresenter
         extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.AppProxy>  implements ApplicationUiHandlers{
@@ -38,6 +38,8 @@ public class ApplicationPresenter
     //BackButton backButton;
     Persistance persistance; 
     Rate rate;
+
+	private AdMob adMob;
     
     @Inject
     ApplicationPresenter(
@@ -45,12 +47,13 @@ public class ApplicationPresenter
             MyView view,
             AppProxy proxy,
             MenuPresenter menuPresenter,
+            AdMob adMob,
             Persistance persistance, Rate rate) {
     	
         super(eventBus, view, proxy, RevealType.Root);
         getView().setUiHandlers(this);
         this.menuPresenter = menuPresenter;
-        
+        this.adMob = adMob;
         this.rate = rate;
         this.persistance = persistance;
        // this.backButton = backButton;
@@ -65,7 +68,8 @@ public class ApplicationPresenter
     	
     	persistance.load();
         rate.prepareRating();
-        	//backButton.init();
+        adMob.showBanner();
+        //backButton.init();
     	
     }
    

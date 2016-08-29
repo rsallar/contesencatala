@@ -1,4 +1,4 @@
-package cat.contesencatala.client.services;
+package cat.contesencatala.client.application.jsservices;
 
 import java.util.logging.Logger;
 

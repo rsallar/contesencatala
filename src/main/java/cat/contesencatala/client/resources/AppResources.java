@@ -6,17 +6,10 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.resources.client.ImageResource.ImageOptions;
 import com.google.gwt.resources.client.ImageResource.RepeatStyle;
 import com.google.gwt.resources.client.TextResource;
-import com.google.gwt.user.cellview.client.CellList;
+import com.google.gwt.resources.client.ClientBundle.Source;
 
-public interface AppResources extends ClientBundleWithLookup, CellList.Resources  {
-    
-	interface MyOverride extends CssResource {
-		
-		 
-    }
-	
-	
-
+public interface AppResources extends ClientBundleWithLookup  {
+    	
     interface Style extends CssResource{
     	String closeIcon();
     	String hideTale();
@@ -40,15 +33,11 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
     @Source("css/style.gss")
     Style style();
     
-        
-    
+   
     /**APP IMAGES*/
     @Source("appimg/background.png")
 	@ImageOptions(repeatStyle=RepeatStyle.Both)
 	ImageResource background();
-    /*@NotStrict
-    @Source("css/myoverride.gss")
-    MyOverride override();*/
     
     /**TALES**/
     
@@ -57,8 +46,6 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
     
     @Source("texts/caputxeta.txt" )
     TextResource  caputxeta();
-    
-    
     
     @Source("texts/flautista.txt")
     TextResource  flautista();
@@ -86,6 +73,47 @@ public interface AppResources extends ClientBundleWithLookup, CellList.Resources
     
     @Source("texts/soldadetplom.txt")
     TextResource soldadetplom();
+    
+    
+    /**IMAGES*/
+    
+    /*IMAGES*/
+    @Source("talesimgs/caputxeta.png")
+    ImageResource  caputxeta_img();
+    
+    @Source("talesimgs/home.png")
+    ImageResource  home_img();
+    
+    @Source("talesimgs/aneguetlleig.png")
+    ImageResource aneguetlleig_img();
+    
+    @Source("talesimgs/patufet.png")
+    ImageResource patufet_img();
+    
+    @Source("talesimgs/flautista.png")
+    ImageResource flautista_img();
+    
+    @Source("talesimgs/gatbotes.png")
+    ImageResource gatbotes_img();
+    
+    @Source("talesimgs/princesapesol.png")
+    ImageResource princesapesol_img();
+    
+    @Source("talesimgs/reinaabelles.png")
+    ImageResource reinaabelles_img();
+    
+    @Source("talesimgs/rapunzel.png")
+    ImageResource rapunzel_img();
+    
+    
+    @Source("talesimgs/musics.png")
+    ImageResource musics_img();
+    
+    @Source("talesimgs/soldadetplom.png")
+    ImageResource soldadetplom_img();
+    
+    @Source("talesimgs/princepfelic.png")
+    ImageResource princepfelic_img();
     
   
   

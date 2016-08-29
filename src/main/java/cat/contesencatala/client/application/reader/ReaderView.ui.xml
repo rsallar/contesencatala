@@ -22,14 +22,14 @@
 				</m:MaterialCardImage>
 				<m:MaterialCardAction backgroundColor="teal lighten-4">
 				<m:MaterialRow marginBottom="0">
-					<m:MaterialButton ui:field="back" type="FLOATING"
-						size="LARGE" iconType="ARROW_BACK" backgroundColor="teal lighten-1" marginRight="8" textColor="white" />
-					<m:MaterialButton ui:field="favorite" type="FLOATING"
-						size="LARGE" iconType="FAVORITE" backgroundColor="teal lighten-1" marginRight="8" textColor="white" />
-					<m:MaterialButton ui:field="fontminus" text="A-" type="FLOATING"
-						size="LARGE" backgroundColor="teal lighten-1" textColor="white" marginRight="8" />
-					<m:MaterialButton ui:field="fontplus" text="A+" type="FLOATING"
-						size="LARGE" backgroundColor="teal lighten-1" textColor="white" marginRight="8"/>
+					<m:MaterialButton ui:field="back" type="FLOATING" waves="LIGHT"
+						size="MEDIUM" iconType="ARROW_BACK" backgroundColor="teal lighten-1" marginRight="8" textColor="white" />
+					<m:MaterialButton ui:field="favorite" type="FLOATING" waves="LIGHT"
+						size="MEDIUM" iconType="FAVORITE" backgroundColor="teal lighten-1" marginRight="8" textColor="white" />
+					<m:MaterialButton ui:field="fontminus" text="A-" type="FLOATING" waves="LIGHT"
+						size="MEDIUM" backgroundColor="teal lighten-1" textColor="white" marginRight="8" />
+					<m:MaterialButton ui:field="fontplus" text="A+" type="FLOATING" waves="LIGHT"
+						size="MEDIUM" backgroundColor="teal lighten-1" textColor="white" marginRight="8"/>
 					</m:MaterialRow>
 				</m:MaterialCardAction>
 				<m:MaterialCardContent textColor="black" addStyleNames="{res.style.content}">

@@ -11,7 +11,6 @@ import com.google.gwt.view.client.HasData;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import cat.contesencatala.client.application.model.Tale;
-import cat.contesencatala.client.resources.AppImagesSmall;
 
 
 class TaleListView extends ViewWithUiHandlers<TaleListUiHandlers> implements TaleListPresenter.MyView {
@@ -25,7 +24,7 @@ class TaleListView extends ViewWithUiHandlers<TaleListUiHandlers> implements Tal
 	private TaleViewCell cell;
 
     @Inject
-    TaleListView(Binder uiBinder, TaleViewCell cell, AppImagesSmall res) {
+    TaleListView(Binder uiBinder, TaleViewCell cell) {
        
         this.cell = cell;
         cellList = new CustomCellList<>(cell);

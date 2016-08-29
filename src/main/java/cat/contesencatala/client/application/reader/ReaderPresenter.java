@@ -14,11 +14,11 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.application.Persistance;
+import cat.contesencatala.client.application.jsservices.AdMob;
 import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
-import cat.contesencatala.client.services.AdMob;
 public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPresenter.MyProxy> implements ReaderUiHandlers {
     interface MyView extends View,HasUiHandlers<ReaderUiHandlers> {
 
@@ -34,7 +34,6 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
     PlaceManager placeManager;
 	private Model model;
 	private Persistance persistance;
-	private AdMob AdMob;
     @NameToken(NameTokens.reader)
     @ProxyStandard
     interface MyProxy extends ProxyPlace<ReaderPresenter> {
@@ -45,10 +44,9 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
             EventBus eventBus,
             MyView view, 
             MyProxy proxy,
-            PlaceManager placeManager, Model model, Persistance persistance, AdMob AdMob) {
+            PlaceManager placeManager, Model model, Persistance persistance) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
         this.placeManager = placeManager;
-        this.AdMob = AdMob;
         getView().setUiHandlers(this);
         this.model = model;
         this.persistance = persistance;
@@ -88,8 +86,7 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 	
 	@Override
 	public void onReset(){
-		AdMob.showAdd();
-		
+				
 		String taleId = placeManager.getCurrentPlaceRequest().getParameter(NameParams.taleId, null);
 		model.selectedTale = model.getTaleById(taleId);
 		getView().setParams(model.selectedTale);

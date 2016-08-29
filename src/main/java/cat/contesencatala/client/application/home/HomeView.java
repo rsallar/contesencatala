@@ -11,7 +11,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
-import cat.contesencatala.client.resources.AppImagesSmall;
+import cat.contesencatala.client.resources.AppResources;
 import gwt.material.design.client.ui.MaterialImage;
 
 public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements HomePresenter.MyView {
@@ -23,7 +23,7 @@ public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements Home
     
     
     @Inject
-    HomeView(Binder uiBinder, AppImagesSmall bundle) {
+    HomeView(Binder uiBinder, AppResources bundle) {
         initWidget(uiBinder.createAndBindUi(this));
         image.setUrl(bundle.home_img().getSafeUri().asString());
         image.getParent().getElement().getStyle().setDisplay(Display.BLOCK);

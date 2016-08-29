@@ -15,7 +15,6 @@ import com.google.gwt.uibinder.client.UiRenderer;
 import com.google.inject.Inject;
 
 import cat.contesencatala.client.application.model.Tale;
-import cat.contesencatala.client.resources.AppImagesSmall;
 import cat.contesencatala.client.resources.AppResources;
 
 public class TaleViewCell extends AbstractCell<Tale> {
@@ -29,16 +28,13 @@ public class TaleViewCell extends AbstractCell<Tale> {
   
 	private static MyUiRenderer renderer = GWT.create(MyUiRenderer.class);
   
-  private AppImagesSmall res;
-
 private boolean favoriteMode;
 
 private AppResources appRes;
   
   @Inject
-  TaleViewCell(AppImagesSmall res, AppResources appRes){
+  TaleViewCell(AppResources appRes){
 	  super("click");
-	  this.res=res;
 	  this.appRes = appRes;
   }
 
@@ -49,7 +45,7 @@ private AppResources appRes;
 		return;
 	}
 	
-	ImageResource imgRes = (ImageResource) res.getResource(value.id+"_img");
+	ImageResource imgRes = (ImageResource) appRes.getResource(value.id+"_img");
 
 	logger.fine("rendering id: "+value.id);
 	

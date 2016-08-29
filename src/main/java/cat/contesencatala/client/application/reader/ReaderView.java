@@ -4,7 +4,6 @@ import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
-import com.gargoylesoftware.htmlunit.javascript.host.dom.Text;
 import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -18,10 +17,8 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import cat.contesencatala.client.application.model.Tale;
-import cat.contesencatala.client.resources.AppImagesSmall;
 import cat.contesencatala.client.resources.AppResources;
 import gwt.material.design.client.constants.FlexAlignSelf;
-import gwt.material.design.client.constants.FlexJustifyContent;
 import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialCardTitle;
@@ -47,16 +44,15 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
     
     /*@UiField
     SimplePanel main;*/
-	private AppImagesSmall bundle;
 	private AppResources resources;
 
     @Inject
-    ReaderView(Binder uiBinder, AppImagesSmall bundle, AppResources resources) {
-    	this.bundle = bundle;
+    ReaderView(Binder uiBinder, AppResources resources) {
     	this.resources = resources;
         initWidget(uiBinder.createAndBindUi(this));
         image.setFlexAlignSelf(FlexAlignSelf.CENTER);
         image.getParent().getElement().getStyle().setDisplay(Display.BLOCK);
+        
     }
     
     @UiHandler("back")
@@ -100,7 +96,7 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 	public void setParams(Tale tale) {
 		
 		TextResource textRes = (TextResource) resources.getResource(tale.id);	
-		ImageResource imageRes = (ImageResource) bundle.getResource(tale.id+"_img");
+		ImageResource imageRes = (ImageResource) resources.getResource(tale.id+"_img");
 		
 		image.setUrl(imageRes.getSafeUri().asString());
 		text.setText(textRes.getText());
