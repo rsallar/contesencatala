@@ -6,7 +6,6 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.resources.client.ImageResource.ImageOptions;
 import com.google.gwt.resources.client.ImageResource.RepeatStyle;
 import com.google.gwt.resources.client.TextResource;
-import com.google.gwt.resources.client.ClientBundle.Source;
 
 public interface AppResources extends ClientBundleWithLookup  {
     	

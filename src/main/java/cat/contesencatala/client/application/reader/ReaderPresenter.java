@@ -14,7 +14,6 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.application.Persistance;
-import cat.contesencatala.client.application.jsservices.AdMob;
 import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;

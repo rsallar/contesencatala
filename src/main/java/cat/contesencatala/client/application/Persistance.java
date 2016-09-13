@@ -36,8 +36,8 @@ public class Persistance {
 
 		if (storage != null) {
 			for (Tale tale : model.tales) {
-				boolean favorite = new Boolean(storage.getItem(tale.id + "#" + "favorite"));
-				tale.favorite = favorite;
+				//boolean favorite = new Boolean(storage.getItem(tale.id + "#" + "favorite"));
+				//tale.favorite = favorite;
 			}
 		}
 
