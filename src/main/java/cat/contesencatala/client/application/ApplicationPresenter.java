@@ -68,7 +68,7 @@ public class ApplicationPresenter
     	
     	persistance.load();
         rate.prepareRating();
-        adMob.showBanner();
+        adMob.show();
         //backButton.init();
     	
     }

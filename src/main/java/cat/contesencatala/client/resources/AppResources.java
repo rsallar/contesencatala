@@ -40,6 +40,20 @@ public interface AppResources extends ClientBundleWithLookup  {
 	ImageResource background();
     
     /**TALES**/
+    @Source("texts/peixetor.txt")
+    TextResource  peixetor();
+    
+    @Source("texts/cigalaformiga.txt")
+    TextResource  cigalaformiga();
+    
+    @Source("texts/princesatrista.txt")
+    TextResource  princesatrista();
+    
+    @Source("texts/peresensepor.txt")
+    TextResource  peresesepor();
+    
+    @Source("texts/rateta.txt")
+    TextResource  rateta();
     
     @Source("texts/aneguetlleig.txt")
     TextResource  aneguetlleig();
@@ -76,6 +90,24 @@ public interface AppResources extends ClientBundleWithLookup  {
     
     
     /**IMAGES*/
+    /*IMAGES*/
+    
+    @Source("talesimgs/peixetor.png")
+    ImageResource  peixetor_img();
+    
+    @Source("talesimgs/princesatrista.png")
+    ImageResource  princesatrista_img();
+    
+    @Source("talesimgs/peresensepor.png")
+    ImageResource  peresensepor_img();
+    
+    
+    /*IMAGES*/
+    @Source("talesimgs/cigalaformiga.png")
+    ImageResource  cigalaformiga_img();
+    
+    @Source("talesimgs/rateta.png")
+    ImageResource  rateta_img();
     
     /*IMAGES*/
     @Source("talesimgs/caputxeta.png")
