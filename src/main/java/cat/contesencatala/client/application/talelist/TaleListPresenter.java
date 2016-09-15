@@ -20,6 +20,8 @@ import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
+import gwt.material.design.client.ui.animate.MaterialAnimator;
+import gwt.material.design.client.ui.animate.Transition;
 public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleListPresenter.MyProxy> implements TaleListUiHandlers {
     interface MyView extends View , HasUiHandlers<TaleListUiHandlers> {
 
@@ -34,6 +36,9 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 		void init();
 
 		void goTop();
+
+		void setOpacity(double i);
+
     }
     Logger logger = Logger.getLogger(TaleListPresenter.class.getName());
 
@@ -69,10 +74,7 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
         firstLoad=true;
     }
        
-    @Override
-    protected void onReveal(){
-    	getView().goTop();
-    }
+    
     
     @Override
     protected void onReset(){
@@ -95,7 +97,7 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     	
     	redrawSelectedTale();
     	
-    
+
     }
     
     
@@ -133,9 +135,14 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 
 	private boolean getFavoriteModeFromPlaceToken(){
     	String favoriteStr = placeManager.getCurrentPlaceRequest().getParameter(NameParams.favorite, "false");
-    	
     	logger.fine("place from token. Favorite mode is:" + favoriteStr);
-    	return new Boolean(favoriteStr);
+    	if("true".equals(favoriteStr)){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    	
+    	
     }
 
 	/**
@@ -143,10 +150,51 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 	 */
     @Override
 	public void update(Tale tale) {
-		PlaceRequest placeRequest = new PlaceRequest.Builder()
-	            .nameToken(NameTokens.reader).with(NameParams.taleId, tale.id)
-	            .build();
-		placeManager.revealPlace(placeRequest, true);
+    	
+    	Runnable runnable = new Runnable(){
+
+			@Override
+			public void run() {
+				PlaceRequest placeRequest = new PlaceRequest.Builder()
+			            .nameToken(NameTokens.reader).with(NameParams.taleId, tale.id)
+			            .build();
+				placeManager.revealPlace(placeRequest, true);
+				getView().setOpacity(0);
+				
+			}
+    	};
+    	
+    	MaterialAnimator.animate(Transition.FADEOUTLEFT, this.asWidget(), 0, 400, runnable, false);
+
+	
 	}
+    
+    @Override
+	public void prepareFromRequest(PlaceRequest request) {
+		getView().setOpacity(0);
+		getProxy().manualReveal(this);
+	}
+	
+    
+    @Override
+	public boolean useManualReveal() {
+	    return true;
+	}
+    
+    @Override
+    protected void onReveal(){
+    	
+    	Runnable runnable = new Runnable(){
+
+			@Override
+			public void run() {
+				getView().setOpacity(1);
+			}
+			
+		};
+    	
+    	MaterialAnimator.animate(Transition.FADEINLEFT, getView().asWidget(), 0, 1000, runnable, false);
+    	
+    }
         
 } 

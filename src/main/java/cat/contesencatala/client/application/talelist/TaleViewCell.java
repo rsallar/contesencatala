@@ -23,7 +23,7 @@ public class TaleViewCell extends AbstractCell<Tale> {
   
 	interface MyUiRenderer extends UiRenderer {
      void render(SafeHtmlBuilder sb, String title, SafeUri url,
-    		 String description, String iconClasses);
+    		 String description, String iconClasses, String badgeClasses);
   }
   
 	private static MyUiRenderer renderer = GWT.create(MyUiRenderer.class);
@@ -51,7 +51,7 @@ private AppResources appRes;
 	
 	
 	
-    renderer.render(builder, value.title, imgRes.getSafeUri(), value.author, getIconClass(value));
+    renderer.render(builder, value.title, imgRes.getSafeUri(), value.author, getIconClass(value), getBadgeClass(value));
   }
 
 private String getIconClass(Tale value) {
@@ -61,6 +61,16 @@ private String getIconClass(Tale value) {
 	}
 	return iconClass;
 }
+
+private String getBadgeClass(Tale value) {
+	String badgeClass = "white-text blue badge sideBarBadge";
+	if(!value.newTale){
+		badgeClass = badgeClass + " hide";
+	}
+	return badgeClass;
+}
+
+//
   @Override
   public void onBrowserEvent(Context context, Element parent, Tale value, NativeEvent event,
       ValueUpdater<Tale> valueUpdater) {

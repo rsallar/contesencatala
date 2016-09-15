@@ -115,4 +115,13 @@ class ReaderView extends ViewWithUiHandlers<ReaderUiHandlers> implements ReaderP
 		favorite.setIconType(IconType.FAVORITE);
 
 	}
+
+
+	@Override
+	public void setOpacity(double i) {
+		this.asWidget().getElement().getStyle().setOpacity(i);
+		
+	}
+	
+	
 }

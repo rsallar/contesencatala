@@ -1,7 +1,5 @@
 package cat.contesencatala.client.application.talelist;
 
-
-
 import java.util.List;
 
 import com.google.gwt.cell.client.Cell;
@@ -13,7 +11,13 @@ import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.view.client.SelectionModel;
 
+import cat.contesencatala.client.application.widgets.loader.WidgetWrapper;
+import gwt.material.design.client.ui.animate.MaterialAnimator;
+import gwt.material.design.client.ui.animate.Transition;
+
 public class CustomCellList<T> extends CellList<T>{
+	
+	private WidgetWrapper containerAsWidget;
 	
 	public CustomCellList(Cell<T> cell) {
 		super(cell);
@@ -21,11 +25,13 @@ public class CustomCellList<T> extends CellList<T>{
 		this.style = getDefaultResources().cellListStyle();
 	    this.style.ensureInjected();
 	    
+	    this.getChildContainer().setId("taleListContainer");
+	    containerAsWidget = new  WidgetWrapper(getChildContainer());
 	}
 	
 	interface Template extends SafeHtmlTemplates {
-	    @Template("<div onclick=\"\" __idx=\"{0}\" class=\"{1}\" style=\"outline:none;\" >{2}</div>")
-	    SafeHtml div(int idx, String classes, SafeHtml cellContents);
+	    @Template("<div id=\"{3}\" onclick=\"\" __idx=\"{0}\" class=\"{1}\" style=\"outline:none;\" >{2}</div>")
+	    SafeHtml div(int idx, String classes, SafeHtml cellContents, String id);
 	  }
 	
 	private static Resources DEFAULT_RESOURCES;
@@ -37,35 +43,20 @@ public class CustomCellList<T> extends CellList<T>{
 	@Override
 	  protected void renderRowValues(SafeHtmlBuilder sb, List<T> values, int start,
 	      SelectionModel<? super T> selectionModel) {
-	    //String keyboardSelectedItem = " " + style.cellListKeyboardSelectedItem();
-	    //String selectedItem = " " + style.cellListSelectedItem();
-	    //String evenItem = style.cellListEvenItem();
-	    //String oddItem = style.cellListOddItem();
-	    //int keyboardSelectedRow = getKeyboardSelectedRow() + getPageStart();
+
 	    int length = values.size();
 	    int end = start + length;
 	    for (int i = start; i < end; i++) {
 	      T value = values.get(i - start);
-	      //boolean isSelected = selectionModel == null ? false : selectionModel.isSelected(value);
 
 	      StringBuilder classesBuilder = new StringBuilder();
-	      
-	      /*
-	      classesBuilder.append(i % 2 == 0 ? evenItem : oddItem);
-	      if (isSelected) {
-	        classesBuilder.append(selectedItem);
-	      }*/
-	      /*
-	      if (i == keyboardSelectedRow) {
-	        classesBuilder.append(keyboardSelectedItem);
-	      }*/
 	      
 	      classesBuilder.append(" "+parentClassName);
 
 	      SafeHtmlBuilder cellBuilder = new SafeHtmlBuilder();
 	      Context context = new Context(i, 0, getValueKey(value));
 	      cell.render(context, value, cellBuilder);
-	      sb.append(TEMPLATE.div(i, parentClassName, cellBuilder.toSafeHtml()));
+	      sb.append(TEMPLATE.div(i, parentClassName, cellBuilder.toSafeHtml(),"talecard"));
 	    }
 	  }
 	
@@ -85,6 +76,8 @@ public class CustomCellList<T> extends CellList<T>{
 	      elem.focus();
 	      onFocus();
 	    }*/
+		
+		
 	  }
 	
 	private static Resources getDefaultResources() {
@@ -97,4 +90,5 @@ public class CustomCellList<T> extends CellList<T>{
 	public void addCellParentClassName(String parentClassName){
 		this.parentClassName = parentClassName;
 	}
+	
 }

@@ -11,6 +11,7 @@ import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.application.Persistance;
@@ -18,6 +19,8 @@ import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
+import gwt.material.design.client.ui.animate.MaterialAnimator;
+import gwt.material.design.client.ui.animate.Transition;
 public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPresenter.MyProxy> implements ReaderUiHandlers {
     interface MyView extends View,HasUiHandlers<ReaderUiHandlers> {
 
@@ -28,6 +31,8 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 		void unfavorite();
 
 		void favorite();
+
+		void setOpacity(double i);
     }
     Logger logger = Logger.getLogger(ReaderPresenter.class.getName());
     PlaceManager placeManager;
@@ -62,14 +67,34 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 	@Override
 	public void back() {
 		
-		placeManager.navigateBack();
+		Runnable runnable = new Runnable(){
+			
+			@Override
+			public void run() {
+				getView().setOpacity(0);
+				placeManager.navigateBack();				
+			}
+		};
+		MaterialAnimator.animate(Transition.FADEOUTRIGHT, getView().asWidget(), 0, 400, runnable, false);
+		
 	}
 	
 	
 	@Override
 	public void onReveal() {
+		getView().goTop();
+		Runnable runnable = new Runnable(){
+
+			@Override
+			public void run() {
+				getView().setOpacity(1);
+				
+			}
+			
+		};
 		
-		
+		MaterialAnimator.animate(Transition.FADEINRIGHT, getView().asWidget(), 0, 1000, runnable, false);
+
 	}
 
 	@Override
@@ -94,8 +119,19 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 		}else{
 			getView().unfavorite();
 		}
-		getView().goTop();
 		
+	}
+	
+	@Override
+	public boolean useManualReveal() {
+	    return true;
+	}
+	
+	@Override
+	public void prepareFromRequest(PlaceRequest request) {
+		getView().setOpacity(0);
+		getView().goTop();
+		getProxy().manualReveal(this);
 	}
 	
 }

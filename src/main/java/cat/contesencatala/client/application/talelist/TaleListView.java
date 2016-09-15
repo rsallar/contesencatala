@@ -63,6 +63,12 @@ class TaleListView extends ViewWithUiHandlers<TaleListUiHandlers> implements Tal
 	public void goTop() {
 		Window.scrollTo(0 ,0);		
 	}
-    
+
+	
+	@Override
+	public void setOpacity(double i) {
+		this.asWidget().getElement().getStyle().setOpacity(i);
+		
+	}
     
 }

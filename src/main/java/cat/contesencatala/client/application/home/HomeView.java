@@ -13,6 +13,8 @@ import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import cat.contesencatala.client.resources.AppResources;
 import gwt.material.design.client.ui.MaterialImage;
+import gwt.material.design.client.ui.animate.MaterialAnimation;
+import gwt.material.design.client.ui.animate.MaterialAnimator;
 
 public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements HomePresenter.MyView {
     interface Binder extends UiBinder<Widget, HomeView> {
@@ -27,7 +29,7 @@ public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements Home
         initWidget(uiBinder.createAndBindUi(this));
         image.setUrl(bundle.home_img().getSafeUri().asString());
         image.getParent().getElement().getStyle().setDisplay(Display.BLOCK);
-
+        
     }
     
     

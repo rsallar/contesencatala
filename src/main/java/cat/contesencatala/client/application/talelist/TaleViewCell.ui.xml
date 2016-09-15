@@ -9,6 +9,7 @@
 	<ui:with field='title' type='java.lang.String' />
 	<ui:with field='description' type='java.lang.String' />
 	<ui:with field='iconClasses' type='java.lang.String' />
+	<ui:with field='badgeClasses' type='java.lang.String' />
 
 	<div class="card white">
 		<div class="card-image">
@@ -22,7 +23,10 @@
 			</span>
 		</div>
 		<div class="card-content black-text">
-			<span class="material-label"><ui:text from='{description}'/></span>
+			<span class="material-label"><ui:text from='{description}'/>
+			<span class="{badgeClasses}" >nou!</span>
+			</span>
+			
 		</div>
 		<!-- <div class="card-action">
 			<a style="cursor: pointer;">

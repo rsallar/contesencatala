@@ -35,7 +35,6 @@ public class ApplicationPresenter
     public static final NestedSlot SLOT_MAIN = new NestedSlot();
     public static final PermanentSlot<MenuPresenter> SLOT_MENU = new PermanentSlot<>();
 
-    //BackButton backButton;
     Persistance persistance; 
     Rate rate;
 
@@ -56,7 +55,6 @@ public class ApplicationPresenter
         this.adMob = adMob;
         this.rate = rate;
         this.persistance = persistance;
-       // this.backButton = backButton;
         
     }
     
@@ -69,8 +67,7 @@ public class ApplicationPresenter
     	persistance.load();
         rate.prepareRating();
         adMob.show();
-        //backButton.init();
-    	
+            	
     }
    
 }

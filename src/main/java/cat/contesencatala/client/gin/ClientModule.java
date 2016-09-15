@@ -47,8 +47,6 @@ public class ClientModule extends AbstractPresenterModule {
                 .unauthorizedPlace(NameTokens.error)
                 .build());
     	
-    	
-    	//install(dispatchBuilder.build());
     	install(new ApplicationModule());
     	
     	bind(AppMessages.class).asEagerSingleton();
@@ -58,8 +56,6 @@ public class ClientModule extends AbstractPresenterModule {
     	bind(Persistance.class).asEagerSingleton();
     	bind(AdMob.class).asEagerSingleton();
     	bind(Rate.class).asEagerSingleton();
-    //	bind(BackButton.class).asEagerSingleton();
- 
-       /* bindConstant().annotatedWith(GaAccount.class).to(ANALYTICS_ACCOUNT);*/
+
     }
 }

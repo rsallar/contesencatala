@@ -17,8 +17,9 @@ public class AdMob {
 	
 		
 	private static native void showBanner() /*-{
-    	$wnd.plugins.AdMob.createBannerView();
-	
+		if ( $wnd.plugins && $wnd.plugins.AdMob ){
+    		$wnd.plugins.AdMob.createBannerView();
+		}
    	}-*/;
 	
 
