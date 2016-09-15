@@ -29,6 +29,7 @@ public class Model {
 		tales.add(new Tale("princesatrista", "La princesa trista", "Joan Amades","https://dribbble.com/shots/692755-Principessa", true));
 		tales.add(new Tale("cigalaformiga", "La cigala i la formiga", "Isop","https://dribbble.com/shots/1889059-The-Ant-and-the-Grasshopper", true));
 		tales.add(new Tale("peixetor", "El peixet d'or", "Rondalla popular russa","https://dribbble.com/shots/1133451-Golden-Fish", true));
+		tales.add(new Tale("rinxolsdor", "Rínxols d'or", "Conte popular anglès","https://dribbble.com/shots/1882098-Goldilocks", true));
 		
 		
 	}

@@ -39,6 +39,10 @@ public interface AppResources extends ClientBundleWithLookup  {
 	ImageResource background();
     
     /**TALES**/
+    
+    @Source("texts/rinxolsdor.txt")
+    TextResource  rinxolsdor();
+    
     @Source("texts/peixetor.txt")
     TextResource  peixetor();
     
@@ -90,6 +94,8 @@ public interface AppResources extends ClientBundleWithLookup  {
     
     /**IMAGES*/
     /*IMAGES*/
+    @Source("talesimgs/rinxolsdor.png")
+    ImageResource  rinxolsdor_img();
     
     @Source("talesimgs/peixetor.png")
     ImageResource  peixetor_img();
