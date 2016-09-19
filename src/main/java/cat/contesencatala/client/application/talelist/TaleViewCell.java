@@ -46,10 +46,6 @@ private AppResources appRes;
 	}
 	
 	ImageResource imgRes = (ImageResource) appRes.getResource(value.id+"_img");
-
-	logger.fine("rendering id: "+value.id);
-	
-	
 	
     renderer.render(builder, value.title, imgRes.getSafeUri(), value.author, getIconClass(value), getBadgeClass(value));
   }

@@ -35,9 +35,11 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 
 		void init();
 
-		void goTop();
-
 		void setOpacity(double i);
+
+		void scrollTo(int scrollPos);
+
+		int getScrollPos();
 
     }
     Logger logger = Logger.getLogger(TaleListPresenter.class.getName());
@@ -52,7 +54,7 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 	private ListDataProvider<Tale> list = new ListDataProvider<>();
     boolean favoriteModeActive = false;
     boolean firstLoad = false;
-    
+    int scrollPos = 0;
 
     @Inject
     TaleListPresenter(
@@ -79,12 +81,16 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     @Override
     protected void onReset(){
     	
+    	logger.info("onReset");
+    	
+    	
     	if(firstLoad){
     		logger.fine("First Load");
     		firstLoad=false;
     		favoriteModeActive = getFavoriteModeFromPlaceToken();
     		list.setList(model.tales);
     		showTales();
+    		animate();
     		return;
     	}
     	
@@ -92,12 +98,30 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     		logger.fine("Mode change. Favorite is: "+favoriteModeActive);
     		favoriteModeActive = getFavoriteModeFromPlaceToken();
     		showTales();
+    		animate();
     		return;
     	}
     	
     	redrawSelectedTale();
+    	animate();
     	
+    	
+    }
+    
+    private void animate(){
+    	logger.info("animate");
+    	getView().scrollTo(scrollPos);   	
+    	
+    	Runnable runnable = new Runnable(){
 
+			@Override
+			public void run() {
+				getView().setOpacity(1);
+			}
+			
+		};
+    	
+    	MaterialAnimator.animate(Transition.FADEINLEFT, getView().asWidget(), 0, 1000, runnable, false);
     }
     
     
@@ -122,15 +146,12 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     	getView().setFavoriteMode(true);
     	getView().redraw();
     	logger.fine("showing favorited");
-    	//List<Tale> favoriteTales = FluentIterable.from(model.tales).filter(TaleFavoritedPredicate.INSTANCE).toList();
-    	//list.setList(favoriteTales);
 	}
 
 	private void showAllTales() {
 		getView().setFavoriteMode(false);
     	getView().redraw();
 		logger.fine("showing all");
-		//list.setList(model.tales);
 	}
 
 	private boolean getFavoriteModeFromPlaceToken(){
@@ -150,7 +171,7 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 	 */
     @Override
 	public void update(Tale tale) {
-    	
+    	scrollPos = getView().getScrollPos();
     	Runnable runnable = new Runnable(){
 
 			@Override
@@ -171,6 +192,8 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     
     @Override
 	public void prepareFromRequest(PlaceRequest request) {
+    	
+    	logger.info("prepareFromRequest");
 		getView().setOpacity(0);
 		getProxy().manualReveal(this);
 	}
@@ -183,17 +206,8 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     
     @Override
     protected void onReveal(){
-    	
-    	Runnable runnable = new Runnable(){
-
-			@Override
-			public void run() {
-				getView().setOpacity(1);
-			}
-			
-		};
-    	
-    	MaterialAnimator.animate(Transition.FADEINLEFT, getView().asWidget(), 0, 1000, runnable, false);
+    	logger.info("onReveal");
+    
     	
     }
         
