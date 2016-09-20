@@ -9,18 +9,26 @@ public class AdMob {
 	Logger logger = Logger.getLogger(AdMob.class.getName());
 	JavaScriptObject admobid;
 	
-	public void show(){
+	public void prepare(){
 		initAdd();
 		registerAdEvents();
-		showBanner();
+		//showBanner();
 	}
-	
 		
-	private static native void showBanner() /*-{
+	private native void showBanner() /*-{
 		if ( $wnd.plugins && $wnd.plugins.AdMob ){
     		$wnd.plugins.AdMob.createBannerView();
 		}
    	}-*/;
+		
+	public native void showInterstitial() /*-{
+		if ( $wnd.plugins && $wnd.plugins.AdMob ){
+			$wnd.plugins.AdMob.showInterstitialAd();
+			$wnd.plugins.AdMob.createInterstitialView();  //get the interstitials ready to be shown
+            $wnd.plugins.AdMob.requestInterstitialAd();
+		}
+	}-*/;
+
 	
 
 	private static native void initAdd()/*-{
@@ -50,8 +58,8 @@ public class AdMob {
             });
 
             //registerAdEvents();
-            //$wnd.plugins.AdMob.createInterstitialView();  //get the interstitials ready to be shown
-            //$wnd.plugins.AdMob.requestInterstitialAd();
+            $wnd.plugins.AdMob.createInterstitialView();  //get the interstitials ready to be shown
+            $wnd.plugins.AdMob.requestInterstitialAd();
 
         } else {
             //alert( 'admob plugin not ready' );

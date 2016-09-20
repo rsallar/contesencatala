@@ -15,12 +15,12 @@
 }
 
 .card-content{
-background-color: #e0f2f1
+background-color: #e0f2f1;
 }
 
 html{
  background-image: resourceUrl("background");
- background-attachment: fixed;
+
 }
 
 .about{

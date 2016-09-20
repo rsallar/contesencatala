@@ -16,6 +16,7 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
+import cat.contesencatala.client.application.jsservices.AdMob;
 import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
@@ -61,12 +62,13 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
             EventBus eventBus,
             MyView view, 
             MyProxy proxy,
-            Model model,
+            Model model, 
             PlaceManager placeManager) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
         getView().setUiHandlers(this);
         this.placeManager = placeManager;
         this.model = model;
+ 
     }
     
     protected void onBind() {

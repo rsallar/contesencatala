@@ -66,7 +66,7 @@ public class ApplicationPresenter
     	
     	persistance.load();
         rate.prepareRating();
-        adMob.show();
+        adMob.prepare();
             	
     }
    

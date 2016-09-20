@@ -29,11 +29,8 @@ public class ApplicationView extends ViewWithUiHandlers<ApplicationUiHandlers> i
     ApplicationView(Binder uiBinder) {
         initWidget(uiBinder.createAndBindUi(this));
        
-        bindSlot(ApplicationPresenter.SLOT_MENU,  menu);
-        
+        bindSlot(ApplicationPresenter.SLOT_MENU,  menu);        
         bindSlot(ApplicationPresenter.SLOT_MAIN, main);
-       
-        
        
     }
 }

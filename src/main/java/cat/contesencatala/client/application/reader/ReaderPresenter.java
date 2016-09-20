@@ -15,6 +15,7 @@ import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import cat.contesencatala.client.application.ApplicationPresenter;
 import cat.contesencatala.client.application.Persistance;
+import cat.contesencatala.client.application.jsservices.AdMob;
 import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
@@ -38,6 +39,7 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
     PlaceManager placeManager;
 	private Model model;
 	private Persistance persistance;
+	private AdMob adMob;
     @NameToken(NameTokens.reader)
     @ProxyStandard
     interface MyProxy extends ProxyPlace<ReaderPresenter> {
@@ -48,18 +50,17 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
             EventBus eventBus,
             MyView view, 
             MyProxy proxy,
-            PlaceManager placeManager, Model model, Persistance persistance) {
+            PlaceManager placeManager, Model model, Persistance persistance, AdMob adMob) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
         this.placeManager = placeManager;
         getView().setUiHandlers(this);
         this.model = model;
+        this.adMob = adMob;
         this.persistance = persistance;
     }
     
     @Override
     protected void onBind() {  
-    
-    	//IconType.star
     	logger.info("ReaderPresenter bind!");
     	
     }
@@ -82,6 +83,7 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 	
 	@Override
 	public void onReveal() {
+		adMob.showInterstitial();
 		getView().goTop();
 		Runnable runnable = new Runnable(){
 
