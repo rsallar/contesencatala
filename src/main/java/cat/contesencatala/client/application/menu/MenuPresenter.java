@@ -22,6 +22,8 @@ public class MenuPresenter extends PresenterWidget<MenuPresenter.MyView> impleme
 
 		void addListSearches(List<SearchObject> listSearches);
 
+		void close();
+
     }
     
     Logger logger = Logger.getLogger(MenuPresenter.class.getName());
@@ -54,15 +56,11 @@ public class MenuPresenter extends PresenterWidget<MenuPresenter.MyView> impleme
     	}
     	
     	getView().addListSearches(listSearches);
+    	
+    	
     	  
     }
     
-    @Override
-    public void onReset(){
-    	
-    	
-    	
-    }
-	   
+     
     
 }

@@ -9,7 +9,7 @@
 
 	<m:MaterialRow ui:field="container">
 		<m:MaterialColumn grid="s12">
-			<m:MaterialCard padding="15" backgroundColor="">
+			<m:MaterialCard padding="15" backgroundColor="WHITE">
 
 				<m:MaterialLabel fontSize="1.2em" text="Sobre l'aplicació"></m:MaterialLabel>
 				<m:MaterialLabel fontSize="1em" text="{texts.about}" />

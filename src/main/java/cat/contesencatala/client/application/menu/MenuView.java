@@ -63,5 +63,11 @@ class MenuView extends ViewWithUiHandlers<MenuUiHandlers> implements MenuPresent
 		txtSearch.setListSearches(listSearches);	
 		
 	}
+
+	@Override
+	public void close() {
+	
+		
+	}
       
 }

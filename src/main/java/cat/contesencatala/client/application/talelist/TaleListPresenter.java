@@ -21,8 +21,10 @@ import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
+import gwt.material.design.client.ui.animate.MaterialAnimation;
 import gwt.material.design.client.ui.animate.MaterialAnimator;
 import gwt.material.design.client.ui.animate.Transition;
+import gwt.material.design.jquery.client.api.Functions;
 public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleListPresenter.MyProxy> implements TaleListUiHandlers {
     interface MyView extends View , HasUiHandlers<TaleListUiHandlers> {
 
@@ -44,7 +46,7 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 
     }
     Logger logger = Logger.getLogger(TaleListPresenter.class.getName());
-
+    MaterialAnimation animation = new MaterialAnimation();
     @NameToken(NameTokens.talelist)
     @ProxyStandard
     interface MyProxy extends ProxyPlace<TaleListPresenter> {
@@ -114,16 +116,22 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     	logger.info("animate");
     	getView().scrollTo(scrollPos);   	
     	
-    	Runnable runnable = new Runnable(){
-
-			@Override
-			public void run() {
-				getView().setOpacity(1);
-			}
+    	Functions.Func runnable = new Functions.Func(){
 			
+			@Override
+			public void call() {
+				getView().setOpacity(1);	
+				
+			}
 		};
+		
+		animation.setDelayMillis(0);
+		animation.setDurationMillis(1000);
+		animation.setTransition(Transition.FADEINLEFT);
+		animation.setInfinite(false);
+		animation.animate(getView().asWidget(), runnable);
     	
-    	MaterialAnimator.animate(Transition.FADEINLEFT, getView().asWidget(), 0, 1000, runnable, false);
+    
     }
     
     
@@ -174,10 +182,12 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
     @Override
 	public void update(Tale tale) {
     	scrollPos = getView().getScrollPos();
-    	Runnable runnable = new Runnable(){
-
+    	
+    	
+    	Functions.Func runnable = new Functions.Func(){
+			
 			@Override
-			public void run() {
+			public void call() {
 				PlaceRequest placeRequest = new PlaceRequest.Builder()
 			            .nameToken(NameTokens.reader).with(NameParams.taleId, tale.id)
 			            .build();
@@ -185,11 +195,14 @@ public class TaleListPresenter extends Presenter<TaleListPresenter.MyView, TaleL
 				getView().setOpacity(0);
 				
 			}
-    	};
-    	
-    	MaterialAnimator.animate(Transition.FADEOUTLEFT, this.asWidget(), 0, 400, runnable, false);
-
-	
+		};
+		
+		animation.setDelayMillis(0);
+		animation.setDurationMillis(400);
+		animation.setTransition(Transition.FADEOUTLEFT);
+		animation.setInfinite(false);
+		animation.animate(getView().asWidget(), runnable);
+    		
 	}
     
     @Override

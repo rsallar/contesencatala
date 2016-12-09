@@ -12,15 +12,15 @@
 
 
 	<properties>
-		<gwtVersion>2.8.0-rc2</gwtVersion>
-		<gwtPluginVersion>2.8.0-rc2</gwtPluginVersion>
+		<gwtVersion>2.8.0</gwtVersion>
+		<gwtPluginVersion>2.8.0</gwtPluginVersion>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<target.jdk>1.8</target.jdk>
 		<gwtp.version>1.5.3</gwtp.version>
-		<gwt.material>1.6.2</gwt.material>
-		<gwt.material.addin>1.6.0</gwt.material.addin>
+		<gwt.material>2.0-rc3</gwt.material>
+		<gwt.material.addin>2.0-rc3</gwt.material.addin>
 	</properties>
 
 

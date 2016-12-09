@@ -20,8 +20,10 @@ import cat.contesencatala.client.application.model.Model;
 import cat.contesencatala.client.application.model.Tale;
 import cat.contesencatala.client.place.NameParams;
 import cat.contesencatala.client.place.NameTokens;
+import gwt.material.design.client.ui.animate.MaterialAnimation;
 import gwt.material.design.client.ui.animate.MaterialAnimator;
 import gwt.material.design.client.ui.animate.Transition;
+import gwt.material.design.jquery.client.api.Functions;
 public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPresenter.MyProxy> implements ReaderUiHandlers {
     interface MyView extends View,HasUiHandlers<ReaderUiHandlers> {
 
@@ -35,6 +37,8 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 
 		void setOpacity(double i);
     }
+    
+    MaterialAnimation animation = new MaterialAnimation();
     Logger logger = Logger.getLogger(ReaderPresenter.class.getName());
     PlaceManager placeManager;
 	private Model model;
@@ -68,16 +72,21 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 	@Override
 	public void back() {
 		
-		Runnable runnable = new Runnable(){
-			
+		Functions.Func runnable = new Functions.Func(){
+	
 			@Override
-			public void run() {
+			public void call() {
 				getView().setOpacity(0);
-				placeManager.navigateBack();				
+				placeManager.navigateBack();		
+				
 			}
 		};
-		MaterialAnimator.animate(Transition.FADEOUTRIGHT, getView().asWidget(), 0, 400, runnable, false);
-		
+		animation.setDelayMillis(0);
+		animation.setDurationMillis(400);
+		animation.setTransition(Transition.FADEOUTRIGHT);
+		animation.setInfinite(false);
+		animation.animate(getView().asWidget(), runnable);
+				
 	}
 	
 	
@@ -85,17 +94,22 @@ public class ReaderPresenter extends Presenter<ReaderPresenter.MyView, ReaderPre
 	public void onReveal() {
 		adMob.showInterstitial();
 		getView().goTop();
-		Runnable runnable = new Runnable(){
-
+		
+		Functions.Func runnable = new Functions.Func(){
+			
 			@Override
-			public void run() {
-				getView().setOpacity(1);
+			public void call() {
+				getView().setOpacity(1);	
 				
 			}
-			
 		};
-		
-		MaterialAnimator.animate(Transition.FADEINRIGHT, getView().asWidget(), 0, 1000, runnable, false);
+			
+		animation.setDelayMillis(0);
+		animation.setDurationMillis(1000);
+		animation.setTransition(Transition.FADEINRIGHT);
+		animation.setInfinite(false);
+		animation.animate(getView().asWidget(), runnable);
+
 
 	}
 

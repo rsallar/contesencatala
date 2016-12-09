@@ -9,7 +9,7 @@
 	<m:MaterialRow ui:field="container">
 		<m:MaterialColumn grid="s12">
 
-			<m:MaterialCard hoverable="false" backgroundColor="white"
+			<m:MaterialCard hoverable="false" backgroundColor="WHITE"
 				addStyleNames="{res.style.readerCard}">
 
 				<m:MaterialCardImage waves="LIGHT">
@@ -20,19 +20,19 @@
 						addStyleNames="{res.style.cardTitle}" />
 
 				</m:MaterialCardImage>
-				<m:MaterialCardAction backgroundColor="teal lighten-4">
+				<m:MaterialCardAction backgroundColor="TEAL_LIGHTEN_4">
 				<m:MaterialRow marginBottom="0">
 					<m:MaterialButton ui:field="back" type="FLOATING" waves="LIGHT"
-						size="MEDIUM" iconType="ARROW_BACK" backgroundColor="teal lighten-1" marginRight="8" textColor="white" />
+						size="MEDIUM" iconType="ARROW_BACK" backgroundColor="TEAL_LIGHTEN_1" marginRight="8" textColor="WHITE" />
 					<m:MaterialButton ui:field="favorite" type="FLOATING" waves="LIGHT"
-						size="MEDIUM" iconType="FAVORITE" backgroundColor="teal lighten-1" marginRight="8" textColor="white" />
+						size="MEDIUM" iconType="FAVORITE" backgroundColor="TEAL_LIGHTEN_1" marginRight="8" textColor="WHITE" />
 					<m:MaterialButton ui:field="fontminus" text="A-" type="FLOATING" waves="LIGHT"
-						size="MEDIUM" backgroundColor="teal lighten-1" textColor="white" marginRight="8" />
+						size="MEDIUM" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE" marginRight="8" />
 					<m:MaterialButton ui:field="fontplus" text="A+" type="FLOATING" waves="LIGHT"
-						size="MEDIUM" backgroundColor="teal lighten-1" textColor="white" marginRight="8"/>
+						size="MEDIUM" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE" marginRight="8"/>
 					</m:MaterialRow>
 				</m:MaterialCardAction>
-				<m:MaterialCardContent textColor="black" addStyleNames="{res.style.content}">
+				<m:MaterialCardContent textColor="BLACK" addStyleNames="{res.style.content}">
 					<m:MaterialLabel ui:field="text" fontSize="14px" />
 
 				</m:MaterialCardContent>

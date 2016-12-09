@@ -53,7 +53,7 @@ public interface AppResources extends ClientBundleWithLookup  {
     TextResource  princesatrista();
     
     @Source("texts/peresensepor.txt")
-    TextResource  peresesepor();
+    TextResource  peresensepor();
     
     @Source("texts/rateta.txt")
     TextResource  rateta();
